@@ -1,7 +1,7 @@
-Vous allez voir apparaître 2 mots au centre de l`écran.
-\n Vous devrez choisir en déplaçant le curseur si vous pensez que 
-\n ces 2 mots sont: pas du tout lie (Gauche) ou très lie (Droite).
-\n Apres avoir choisi, il suffit de cliquer sur le bouton de la souris
-\n pour passez a la paire suivante.
-\n Vous disposez de 10s maximum pour répondre.
+Vous allez maintenant pouvoir vous entrainer sur 50 essais pour vous
+\n familiariser avec le trackball. Dans cet entrainement, vous allez
+\n voir un chiffre apparaitre et vous devrez placer le curseur sur la 
+\n position la plus proche de ce chiffre, sur l'échelle.
+\n Apres avoir choisi, vous devez cliquer sur le bouton de la souris
+\n pour passez au chiffre suivant.
 \n\n Appuyez sur Espace pour continuer.

@@ -1,2 +1,4 @@
-Si vous n’avez pas des questions, vous pouvez commencer l’expérience.
+Vous verrez la paire de mots pendant 2 secondes puis vous
+\n disposerez de 2 nouvelles secondes pour répondre.
+\n Les mots deviendront jaunes lorsque vous pouvez répondre.
 \n\n Appuyez sur Espace pour commencer.

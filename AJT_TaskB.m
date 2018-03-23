@@ -23,10 +23,10 @@ KbName('UnifyKeyNames') % cross compatibility
 
 %Create a input box where the experimenter can enter the different
 %parameter
-prompt = {'Numero du participant?','Only creation set?','Combien de trials?','Screen Output? [Testing OR CENIR OR CENIRb]'};
+prompt = {'Numero du participant?','Only creation set?','Combien de training moteur?','Combien de training normal?','Combien de trials?','Screen Output? [Testing OR CENIR OR CENIRb]'};
 dlg_title = 'Input';
 num_lines = 1;
-defaultans = {'0','0','100','Testing'};
+defaultans = {'0','0','50','10','100','Testing'};
 AnswerStart = inputdlg(prompt,dlg_title,num_lines,defaultans);
 
 %Change the seed for the random generator every time the function start
@@ -38,8 +38,10 @@ path=[pwd '/'];
 
 %Define the parameters used in the task
 CreationOnlySet=str2num(AnswerStart{2}); %Decide if should only create a set
-NumberItems = str2num(AnswerStart{3}); %Define the number of item to test
-WhichScreen= AnswerStart{4}; %Define the screen where the display should be on
+NumberMotorvisuo=str2num(AnswerStart{3}); %Define the number of training of motor
+NumberItemsTraining=str2num(AnswerStart{4}); %Define the number of normal training
+NumberItems = str2num(AnswerStart{5}); %Define the number of item to test
+WhichScreen= AnswerStart{6}; %Define the screen where the display should be on
 lineLength    = 10; %Line length of the scale
 width         = 5; %Width fo the scale
 scalaLength   = 0.6; %Length of the marker in the scale
@@ -51,12 +53,12 @@ wordColor = [255 255 0]; %Color of the word when need to choose; Yellow
 device = 'mouse'; %Which device to use the scale. 
 if strcmp(WhichScreen,'Testing')
     OutputScreen= 0; %Testing
-    aborttime     = 10; %Abort time for the training and task
-    aborttimeNumber = 10; %Abort time for the motor training
+    aborttime     = 2; %Abort time for the training and task
+    aborttimeNumber = 2; %Abort time for the motor training
 elseif strcmp(WhichScreen,'CENIR')
     OutputScreen= 1; %CENIR scanner
-    aborttime     = 10; %Abort time for the training and task
-    aborttimeNumber = 10; %Abort time for the motor training
+    aborttime     = 2; %Abort time for the training and task
+    aborttimeNumber = 2; %Abort time for the motor training
 elseif strcmp(WhichScreen,'CENIRb')
     OutputScreen= 3;% CENIR Benoit Windows
     aborttime     = 2; %Abort time for the training and task
@@ -67,7 +69,7 @@ responseKey   = KbName('return'); %Return the keycode for the key 'return'
 startPosition = 'center'; %Select the start position of the cursor
 endPoints={'0 = Pas du tout Lié', '100= Complètement lié'}; %Which word there is at the end of the scale
 InstructionScreensPart1=2; %Instruction at the beginning
-InstructionScreensPart2=1; %Instruction after motor training and before normal training
+InstructionScreensPart2=2; %Instruction after motor training and before normal training
 InstructionScreensPart3=1; %Instruction after normal training and experiment
 EncodingInstruction='UTF-8'; %Specify the encoding of the instruction file
 EncodingFile='Macintosh'; %Specify the encoding of the txt file
@@ -76,8 +78,6 @@ CountPauseSet=0; %Counter for the pause
 leftKey = KbName('LeftArrow'); %GetName of left arrow in keyboard
 rightKey = KbName('RightArrow'); %GetName of right arrow in keyboard
 pixelsPerPress = 10; % Movement of pixel per change if keyboard
-NumberMotorvisuo=1; %Define the number of training of motor
-NumberItemsTraining=1; %Define the number of normal training
 PercentToMove=0.05; %Percent to move the cursor before can do something
 InstructFontChg=0.07; %Modify the font size of the instruction
 CuesFontChg=0.09; %Modify the font size of the cues
@@ -160,12 +160,7 @@ Answer_given_WordPair=NaN(NumberItems,3);
 
 %%
 %Call some default settings for setting up Psychtoolbox or Debug mode
-%depending if it's testing or not
-if strcmp(WhichScreen,'Testing')
-    PsychDebugWindowConfiguration
-else
-    PsychDefaultSetup(2);
-end
+PsychDefaultSetup(2);
 
 %Silent the input from keyboard
 ListenChar(2)
@@ -186,7 +181,7 @@ white = WhiteIndex(screenNumber);
 black = BlackIndex(screenNumber);
 
 % Open an on screen window
-[window, windowRect] = PsychImaging('OpenWindow', screenNumber, black);
+[window, windowRect] = PsychImaging('OpenWindow',screenNumber, black);
 
 % Get the size of the on screen window
 [screenXpixels, screenYpixels] = Screen('WindowSize', window);
@@ -236,10 +231,8 @@ rightTick  = [rect(3)*scalaLength rect(4)*scalaPosition - lineLength rect(3)*sca
 horzLine   = [rect(3)*scalaLength rect(4)*scalaPosition rect(3)*(1-scalaLength) rect(4)*scalaPosition];
 textBounds = [Screen('TextBounds', window, endPoints{1}); Screen('TextBounds', window, endPoints{2})];
 
-%If not in testing, hidethe cursos
-if strcmp(WhichScreen,'Testing')==0
-    HideCursor;
-end
+%Hide the cursor during the experiment
+HideCursor;
 
 %%First part of the instructions
 for InstructionNumberPart1= 1:InstructionScreensPart1
@@ -274,7 +267,7 @@ end
 %%Moto-visuo training
 for WhichIterationNumber = 1:NumberMotorvisuo
     
-    %Select a random number between 1 and 2.
+    %Select a random number between 1 and 100.
     NumberTemp=unidrnd(100,1);
         
     % Setup the text type for the window
@@ -893,7 +886,7 @@ end
 %%
 %Create a last structure containing the seed of random number generator,
 %the word list as well as the answers given.
-save(['AJT_Pilot_PN' AnswerStart{1}],'Seed_is','WordList_shuffle_check','Answer_given_WordPair')
+save(['AJT_Pilot_PN' AnswerStart{1}],'Seed_is','WordList_shuffle_check','Answer_given_motor','Answer_given_training','Answer_given_WordPair')
 
 %Allow input again on command line
 ListenChar(0)
