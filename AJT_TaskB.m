@@ -81,11 +81,17 @@ pixelsPerPress = 10; % Movement of pixel per change if keyboard
 PercentToMove=0.05; %Percent to move the cursor before can do something
 InstructFontChg=0.07; %Modify the font size of the instruction
 CuesFontChg=0.09; %Modify the font size of the cues
-EndPointsFontChg=0.03; %Modify the font size of the end points
+EndPointsFontChg=0.05; %Modify the font size of the end points
 EndPointsPositionYChg=0.05; %Modify the Y position of the end points
 EndPointsPositionXChg=0.16; %Modify the X position of the end points
 CuesPositionYChg=0.75; %Modify the Y position of the cues
 MouseSpeedFactor = 1.5; %Define the parameter of the speed of the mouse 
+
+if IsWindows
+    MouseDeviceIndex = 1; % Matthieu
+elseif IsLinux
+    MouseDeviceIndex = 12; % Linux -> trackball
+end
 
 %%
 %%%Create all the possible pairs of words by using a number associated with
@@ -232,7 +238,7 @@ horzLine   = [rect(3)*scalaLength rect(4)*scalaPosition rect(3)*(1-scalaLength) 
 textBounds = [Screen('TextBounds', window, endPoints{1}); Screen('TextBounds', window, endPoints{2})];
 
 %Hide the cursor during the experiment
-HideCursor;
+HideCursor(OutputScreen);
 
 %%First part of the instructions
 for InstructionNumberPart1= 1:InstructionScreensPart1
@@ -314,7 +320,7 @@ for WhichIterationNumber = 1:NumberMotorvisuo
         %Check if task uses a mouse or keyboard
         if strcmp(device, 'mouse')
             %Get the position of the mouse
-            [x,~,buttons,~,~,~] = GetMouse(window, 1);
+            [x,~,buttons,~,~,~] = GetMouse(window, MouseDeviceIndex);
         elseif strcmp(device, 'keyboard')
             %Check the keyboard
             [keyIsDown,~, keyCode] = KbCheck;
@@ -533,7 +539,7 @@ for WhichIterationTraining = 1:NumberItemsTraining
         %Check if task uses a mouse or keyboard
         if strcmp(device, 'mouse')
             %Get the position of the mouse
-            [x,~,buttons,~,~,~] = GetMouse(window, 1);
+            [x,~,buttons,~,~,~] = GetMouse(window, MouseDeviceIndex);
         elseif strcmp(device, 'keyboard')
             %Check the keyboard
             [keyIsDown,~, keyCode] = KbCheck;
@@ -753,7 +759,7 @@ for WhichIteration = 1:NumberItems
         %Check if task uses a mouse or keyboard
         if strcmp(device, 'mouse')
             %Get the position of the mouse
-            [x,~,buttons,~,~,~] = GetMouse(window, 1);
+            [x,~,buttons,~,~,~] = GetMouse(window, MouseDeviceIndex);
         elseif strcmp(device, 'keyboard')
             [keyIsDown,~, keyCode] = KbCheck;
             if keyCode(leftKey)
