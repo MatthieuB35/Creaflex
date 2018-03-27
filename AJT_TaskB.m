@@ -87,7 +87,7 @@ EndPointsPositionXChg=0.16; %Modify the X position of the end points
 CuesPositionYChg=0.75; %Modify the Y position of the cues
 MouseSpeedFactor = 1.5; %Define the parameter of the speed of the mouse 
 
-if IsWindows
+if IsWindows || IsOSX
     MouseDeviceIndex = 1; % Matthieu
 elseif IsLinux
     MouseDeviceIndex = 12; % Linux -> trackball
