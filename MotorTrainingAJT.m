@@ -2,12 +2,10 @@ function Output=MotorTrainingAJT(NumberItems,window,screenXpixels, screenYpixels
 
 Parameters
 
-
 x=xCenter;
 
-%Modification of the fontsize of the instruction,cues and endpoints
+% %Modification of the fontsize of the instruction,cues and endpoints
 SizeFontModifyCues=round((screenXpixels-screenYpixels)*CuesFontChg);
-SizeFontModifyEndPoints=round((screenXpixels-screenYpixels)*EndPointsFontChg);
 
 SetMouse(round(x), round(rect(4)*scalaPosition));
 
@@ -18,28 +16,8 @@ for WhichIterationNumber = 1:NumberItems
     %Select a random number between 1 and 100.
     NumberTemp=unidrnd(100,1);
     
-    % Setup the text type for the window
-    Screen('TextFont', window, 'Arial');
-    Screen('TextSize', window, SizeFontModifyCues);
-    
-    % Drawing the number
-    DrawFormattedText(window,num2str(NumberTemp),'center', rect(4)*(scalaPosition*CuesPositionYChg),NormalColor);
-    
-    % Setup the text type for the window
-    Screen('TextFont', window, 'Arial');
-    Screen('TextSize', window, SizeFontModifyEndPoints);
-    
-    % Drawing the end points of the scala as text
-    DrawFormattedText(window, endPoints{1}, leftTick(1, 1)-leftTick(1, 1)*EndPointsPositionXChg,  rect(4)*scalaPosition+rect(4)*EndPointsPositionYChg,NormalColor); % Left point
-    DrawFormattedText(window, endPoints{2}, rightTick(1, 1)-leftTick(1, 1)*EndPointsPositionXChg,  rect(4)*scalaPosition+rect(4)*EndPointsPositionYChg,NormalColor); % Right point
-    
-    % Drawing the scala
-    Screen('DrawLine', window, scaleColor, midTick(1), midTick(2), midTick(3), midTick(4), width);         % Mid tick
-    Screen('DrawLine', window, scaleColor, leftTick(1), leftTick(2), leftTick(3), leftTick(4), width);     % Left tick
-    Screen('DrawLine', window, scaleColor, rightTick(1), rightTick(2), rightTick(3), rightTick(4), width); % Right tick
-    Screen('DrawLine', window, scaleColor, horzLine(1), horzLine(2), horzLine(3), horzLine(4), width);     % Horizontal line
-    
-    Screen('Flip', window);
+    %Display on screen the scale + the cue
+    Display_AJT(1,NumberTemp,NormalColor,0,xCenter,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
     
     %Wait for X seconds, depending of the time need to think
     WaitSecs(TimeToThink)
@@ -86,32 +64,8 @@ for WhichIterationNumber = 1:NumberItems
             x = rect(3)*(1-scalaLength);
         end
         
-        % Setup the text type for the window
-        Screen('TextFont', window, 'Arial');
-        Screen('TextSize', window, SizeFontModifyCues);
-        
-        %Draw the number in the center of the screen above the scale
-        DrawFormattedText(window,num2str(NumberTemp),'center', rect(4)*(scalaPosition*CuesPositionYChg),wordColor);
-        
-        % Setup the text type for the window
-        Screen('TextFont', window, 'Arial');
-        Screen('TextSize', window, SizeFontModifyEndPoints);
-        
-        % Drawing the end points of the scala as text
-        DrawFormattedText(window, endPoints{1}, leftTick(1, 1)-leftTick(1, 1)*EndPointsPositionXChg,  rect(4)*scalaPosition+rect(4)*EndPointsPositionYChg,NormalColor); % Left point
-        DrawFormattedText(window, endPoints{2}, rightTick(1, 1)-leftTick(1, 1)*EndPointsPositionXChg,  rect(4)*scalaPosition+rect(4)*EndPointsPositionYChg,NormalColor); % Right point
-        
-        % Drawing the scala
-        Screen('DrawLine', window, scaleColor, midTick(1), midTick(2), midTick(3), midTick(4), width);         % Mid tick
-        Screen('DrawLine', window, scaleColor, leftTick(1), leftTick(2), leftTick(3), leftTick(4), width);     % Left tick
-        Screen('DrawLine', window, scaleColor, rightTick(1), rightTick(2), rightTick(3), rightTick(4), width); % Right tick
-        Screen('DrawLine', window, scaleColor, horzLine(1), horzLine(2), horzLine(3), horzLine(4), width);     % Horizontal line
-        
-        % The slider
-        Screen('DrawLine', window, sliderColor, x, rect(4)*scalaPosition - lineLengthSlider, x, rect(4)*scalaPosition  + lineLengthSlider, width);
-        
-        % Flip screen
-        onsetStimulus = Screen('Flip', window);
+        %Display on screen the scale + the cue + the slider
+        Display_AJT(1,NumberTemp,wordColor,1,x,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
         
         % Check if answer has been given
         if strcmp(device, 'mouse')
@@ -172,7 +126,6 @@ for WhichIterationNumber = 1:NumberItems
     WaitSecs(1)
     
 end
-    Output=Answer_given_motor;
+Output=Answer_given_motor;
 
-    sca
 end

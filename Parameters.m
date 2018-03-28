@@ -20,9 +20,9 @@ TimeToThink=2; %Decide the number of seconds where participants have the time to
 responseKey   = KbName('return'); %Return the keycode for the key 'return'
 startPosition = 'center'; %Select the start position of the cursor
 endPoints={'0 = Pas du tout Lié', '100= Complètement lié'}; %Which word there is at the end of the scale
-InstructionScreensPart1=2; %Instruction at the beginning
-InstructionScreensPart2=2; %Instruction after motor training and before normal training
-InstructionScreensPart3=1; %Instruction after normal training and experiment
+InstructionScreensPart1=[1;2]; %Instruction at the beginning
+InstructionScreensPart2=[3;4]; %Instruction after motor training and before normal training
+InstructionScreensPart3=5; %Instruction after normal training and experiment
 EncodingInstruction='UTF-8'; %Specify the encoding of the instruction file
 EncodingFile='Macintosh'; %Specify the encoding of the txt file
 leftKey = KbName('LeftArrow'); %GetName of left arrow in keyboard

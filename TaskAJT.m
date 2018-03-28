@@ -6,14 +6,6 @@ Parameters
 
 x=xCenter;
 
-%Modification of the fontsize of the instruction,cues and endpoints
-SizeFontModifyCues=round((screenXpixels-screenYpixels)*CuesFontChg);
-SizeFontModifyEndPoints=round((screenXpixels-screenYpixels)*EndPointsFontChg);
-
-%Define the left and right position of the cues
-LeftScreenPosition=rect(3)*0.4;
-RightScreenPosition=rect(3)*0.6;
-
 
 SetMouse(round(x), round(rect(4)*scalaPosition));
 
@@ -30,45 +22,15 @@ for WhichIteration = 1:NumberItems
     if LeftOrRight_rnd==1
         textString_Left_CurrIt = char(WordList_AllTrial{WhichIteration,1});
         textString_Right_CurrIt = char(WordList_AllTrial{WhichIteration,2});
+        WhichItem={textString_Left_CurrIt; textString_Right_CurrIt};
     else
         textString_Left_CurrIt = char(WordList_AllTrial{WhichIteration,2});
         textString_Right_CurrIt = char(WordList_AllTrial{WhichIteration,1});
+        WhichItem={textString_Left_CurrIt; textString_Right_CurrIt};
     end
     
-    %Wait for the participant to replay
-    
-    % Setup the text type for the window
-    Screen('TextFont', window, 'Arial');
-    Screen('TextSize', window, SizeFontModifyCues);
-    
-    %Draw the left item to get the size of the string so it can moved and
-    %leave the same space between the two cues for each trial
-    [~, ~, textBounds]=DrawFormattedText(window,textString_Left_CurrIt,LeftScreenPosition, rect(4)*(scalaPosition*CuesPositionYChg),white); %Left item
-    DisplaceText=textBounds(3)-textBounds(1);
-    
-    %Fill the screen in black
-    Screen('FillRect', window, [0 0 0])
-    
-    % Drawing the two cues as text
-    DrawFormattedText(window, textString_Left_CurrIt,LeftScreenPosition-DisplaceText, rect(4)*(scalaPosition*CuesPositionYChg),white);%/4-100
-    DrawFormattedText(window, textString_Right_CurrIt,RightScreenPosition,rect(4)*(scalaPosition*CuesPositionYChg),white);
-    
-    % Setup the text type for the window
-    Screen('TextFont', window, 'Arial');
-    Screen('TextSize', window, SizeFontModifyEndPoints);
-    
-    % Drawing the end points of the scala as text %textBounds(1, 3) -
-    %   - rightTick(1, 1)/2
-    DrawFormattedText(window, endPoints{1}, leftTick(1, 1)-leftTick(1, 1)*EndPointsPositionXChg,  rect(4)*scalaPosition+rect(4)*EndPointsPositionYChg, white,[],[],[],[],[],[]); % Left point
-    DrawFormattedText(window, endPoints{2}, rightTick(1, 1)-leftTick(1, 1)*EndPointsPositionXChg,  rect(4)*scalaPosition+rect(4)*EndPointsPositionYChg, white,[],[],[],[],[],[]); % Right point
-    
-    % Drawing the scala
-    Screen('DrawLine', window, scaleColor, midTick(1), midTick(2), midTick(3), midTick(4), width);         % Mid tick
-    Screen('DrawLine', window, scaleColor, leftTick(1), leftTick(2), leftTick(3), leftTick(4), width);     % Left tick
-    Screen('DrawLine', window, scaleColor, rightTick(1), rightTick(2), rightTick(3), rightTick(4), width); % Right tick
-    Screen('DrawLine', window, scaleColor, horzLine(1), horzLine(2), horzLine(3), horzLine(4), width);     % Horizontal line
-    
-    Screen('Flip', window);
+    %Display on screen the scale + the cues
+    Display_AJT(2,WhichItem,NormalColor,0,xCenter,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
     
     %Wait for X seconds, depending of the time need to think
     WaitSecs(TimeToThink)
@@ -121,42 +83,8 @@ for WhichIteration = 1:NumberItems
             x = rect(3)*(1-scalaLength);
         end
         
-        
-        % Setup the text type for the window
-        Screen('TextFont', window, 'Arial');
-        Screen('TextSize', window, SizeFontModifyCues);
-        
-        %Draw the left item to get the size of the string so it can moved and
-        %leave the same space between the two cues for each trial
-        [~, ~, textBounds]=DrawFormattedText(window,textString_Left_CurrIt,LeftScreenPosition, rect(4)*(scalaPosition*CuesPositionYChg),white); %Left item
-        DisplaceText=textBounds(3)-textBounds(1);
-        
-        %Fill the screen in black
-        Screen('FillRect', window, [0 0 0])
-        
-        % Drawing the two cues as text
-        DrawFormattedText(window, textString_Left_CurrIt,LeftScreenPosition-DisplaceText,rect(4)*(scalaPosition*CuesPositionYChg),wordColor);
-        DrawFormattedText(window, textString_Right_CurrIt,RightScreenPosition,rect(4)*(scalaPosition*CuesPositionYChg),wordColor);
-        
-        % Setup the text type for the window
-        Screen('TextFont', window, 'Arial');
-        Screen('TextSize', window, SizeFontModifyEndPoints);
-        
-        % Drawing the end points of the scala as text
-        DrawFormattedText(window, endPoints{1}, leftTick(1, 1)-leftTick(1, 1)*EndPointsPositionXChg,  rect(4)*scalaPosition+rect(4)*EndPointsPositionYChg, white,[],[],[],[],[],[]); % Left point
-        DrawFormattedText(window, endPoints{2}, rightTick(1, 1)-leftTick(1, 1)*EndPointsPositionXChg,  rect(4)*scalaPosition+rect(4)*EndPointsPositionYChg, white,[],[],[],[],[],[]); % Right point
-        
-        % Drawing the scala
-        Screen('DrawLine', window, scaleColor, midTick(1), midTick(2), midTick(3), midTick(4), width);         % Mid tick
-        Screen('DrawLine', window, scaleColor, leftTick(1), leftTick(2), leftTick(3), leftTick(4), width);     % Left tick
-        Screen('DrawLine', window, scaleColor, rightTick(1), rightTick(2), rightTick(3), rightTick(4), width); % Right tick
-        Screen('DrawLine', window, scaleColor, horzLine(1), horzLine(2), horzLine(3), horzLine(4), width);     % Horizontal line
-        
-        % The slider
-        Screen('DrawLine', window, sliderColor, x, rect(4)*scalaPosition - lineLengthSlider, x, rect(4)*scalaPosition  + lineLengthSlider, width);
-        
-        % Flip screen
-        Screen('Flip', window);
+        %Display on screen the scale + the cues + the slider
+        Display_AJT(2,WhichItem,wordColor,1,x,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
         
         % Check if answer has been given
         if strcmp(device, 'mouse') && Moved==1
@@ -204,13 +132,11 @@ for WhichIteration = 1:NumberItems
     %Enter the answer in the scale, the reaction time and if the
     %participant answered into the variable
     Answer_given_WordPair(WhichIteration,:)=[position, RT, answer];
-
+    
 end
 
 
 Output=Answer_given_WordPair;
 
-
-sca
 
 end

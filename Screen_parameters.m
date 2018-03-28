@@ -33,3 +33,7 @@ ifi = Screen('GetFlipInterval', window);
 % Get the center coordinate of the window
 [xCenter, yCenter] = RectCenter(windowRect);
 rect= [ 0 0 screenXpixels screenYpixels]; %Dimension of the screen
+midTick    = [xCenter rect(4)*scalaPosition - lineLength - 5 xCenter rect(4)*scalaPosition  + lineLength + 5];
+leftTick   = [rect(3)*(1-scalaLength) rect(4)*scalaPosition - lineLength rect(3)*(1-scalaLength) rect(4)*scalaPosition  + lineLength];
+rightTick  = [rect(3)*scalaLength rect(4)*scalaPosition - lineLength rect(3)*scalaLength rect(4)*scalaPosition  + lineLength];
+horzLine   = [rect(3)*scalaLength rect(4)*scalaPosition rect(3)*(1-scalaLength) rect(4)*scalaPosition];
