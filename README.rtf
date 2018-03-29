@@ -1,0 +1,130 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf200
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\csgray\c0\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww23440\viewh14440\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b\fs36 \cf2 \ul \ulc2 READ ME FOR MATLAB SCRIPT : Selection_nodes
+\b0\fs24 \ulnone \
+\
+
+\b\fs26 Part0: Before launching the script
+\b0\fs24 \
+1) You need to put all the different files in same folder, and put it as current folder in Matlab.\
+2) You need to verify if you\'92re encoding supports \'91macintosh\'92 and \'91UTF-8\'92. \
+\
+\
+
+\b\fs26 Part1: Loading
+\b0\fs24 \
+Decide if need to load the different files. This should be set as 1 the first time the script is running. However, you don\'92t need to set it back at 1 every time if you don\'92t clean your workspace or make change to the initial variable.\
+\
+	\ul InputBox1:\ulnone  \'91Loading\'92  0=No || 1=Yes      \{ Decide if you want to load or not\}\
+\
+\
+
+\b\fs28 Part2: Cleaning and Creation of index
+\b0\fs24 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \expnd0\expndtw0\kerning0
+I cleaned from the distance matrix, the nodes that didn't correspond to the\'a0criteria. The different criteria are the lexical frequency, the number of syllables, if the word was used in other tasks, taking only nouns, words with an article. Everything can be change in the input box. \
+Then, after the cleaning, all the different nodes left where associated to see how many nodes there is for each distance categories. \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf2 \
+	\ul InputBox2:\ulnone  \cb3 'Creation of Index?'  \cb1 0=No || 1=Yes     \{Decide if create of the index variables\} \cb3 \
+			'Number total of nodes?' X     \{\cb1 Number of nodes in total within the graph\}\cb3 \
+			'Number of Nodes to select?', X      \{\cb1 Number of nodes that should be selected\}\cb3 \
+			'Categories?', [X,X,X]     \{\cb1 Which distance category are selected\}\cb3 \
+			'Minimum Frequency?', X     \{\cb1 The minimal lexical frequency accepted\}\cb3 \
+			'Maximum Syllabes?', X      \{\cb1 The maximum number of syllabes accepted\}\cb3 \
+			'Only Noun?' \cb1 0=No || 1=Yes      \{Decide if take only noun\}\cb3 \
+			'Check Words other task?' \cb1 0=No || 1=Yes       \{Decide if delete the words used in other tasks\}\cb3 \
+			'Nodes with articles?' \cb1 0=No || 1=Yes       \{Decide if delete words with articles in the nodes\}\
+\
+	\expnd0\expndtw0\kerning0
+\ul Output:\ulnone  
+\i \cf0 \kerning1\expnd0\expndtw0 RejectedNodes; 
+\i0 In this variable, there is the list of all the rejected nodes that has been cleaned and remover from the distance matrix.\
+		    
+\i Distances; 
+\i0 In this variable, there is the previous distance matrix minus all the rows/columns corresponding to the rejected nodes. (Changed by 0)
+\i \
+		    AllIndex; 
+\i0 In this structure, there is all the pairs left for each distance categories.
+\i \
+	    
+\f1\i0 \
+
+\f0 \cf2 \
+
+\b\fs28 Part3: Creation trees & \expnd0\expndtw0\kerning0
+Summary Tables
+\b0\fs24 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \expnd0\expndtw0\kerning0
+I created "trees" starting from each nodes left in the graph after the previous part. The creation process started by taking a seed node and look at all its\'a0neighbours\'a0nodes, selecting in 
+\i \cf0 \kerning1\expnd0\expndtw0 AllIndex 
+\i0 of distance category 1\cf2 \expnd0\expndtw0\kerning0
+. Then, the\'a0next iteration look at all the\'a0neighbours from the previous nodes\'a0found. And so on, until it reaches the maximum of iteration decided, set as the number of categories selected. Finally, the seed node can be deleted or not from all the nodes gathered. Then, the amount of nodes is check to be equal or\'a0above as\'a0the amount desired.\
+\kerning1\expnd0\expndtw0 Then, \expnd0\expndtw0\kerning0
+I created output tables\'a0that contain information for every trees found, either about the percentage of pairs existing in each distance categories OR percentage of pairs in the same community for each distance categories.\
+\kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf2 	\ul InputBox3:\ulnone 'Creation Trees?' 0=No || 1=Yes     \{Decide if create trees\}\
+			'Keep Origin tree ?' 0=No || 1=Yes     \{Decide if keep the origin of the trees\}\
+			'Creation summary table (need trees)?' 0=No || 1=Yes     \{Decide if create a summary of the tree\}\
+			'Table with communities (need previous table)?' 0=No || 1=Yes     \{Decide if create a summary of the tree with the communities details\}\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+	\ul Output:\ulnone  
+\i OutputSelectionNodes;
+\i0  In this structure, there is the list of all the possible trees created with inside which nodes and which pairs has been selected for each iteration of the creation of the tree. There is also the complete list of all the nodes selected (with or without the seed node)\
+\cf0 		
+\i  TableSummaryTree;
+\i0  In this table, \cf2 C1: Index | C2: Number of nodes | C3: Number of communities | C4-8: \cf0 The percentage of pairs existing for each distance category. | C9: Total Number of distance categories for the current tree.\
+		 
+\i TableSummaryTreeCommu;
+\i0  In this table, \cf2 C1: Index | C2: Number of nodes | C3: Number of communities | C4-X: Percentage of pairs for each distance categories that are in the same community (i.e. C4 for distance category 1, etc)
+\f1 \cf0 \
+
+\f0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\b\fs28 \cf2 \
+Part4: Selection trees of interest
+\b0\fs24 \
+Finally, a subset of trees can be selected by choosing the different criteria of interest to filter the results. The outputs are saved in a mat file if necessary.\
+\
+	\cf2 \ul \ulc2 Input\cf2 \ulc2 Box4:\ulnone  'Output of the names (need summary table)?' 0=No || 1=Yes     \{Decide if select subset of trees and create their label outputs\}\
+			 'Minimum % of step 1?' X     \{Decide the minimum % of distance category 1\}\
+			 'Maximum % of step 5+?' X     \{Decide the maximum % of distance category 5+\}\
+			 'Minimum of nodes?' X     \{Decide the minimum of nodes that should be selected in the subset\}\
+			 'Maximum of nodes?' X     \{Decide the maximum of nodes that should be selected in the subset\}\
+			 'Save?' 0=No || 1=Yes     \{Decide if save the subset output\}\
+\pard\pardeftab720\partightenfactor0
+\cf2 \expnd0\expndtw0\kerning0
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf2 \kerning1\expnd0\expndtw0 	\ul Output:\ulnone  
+\i SubsetSelected;
+\i0  This table is similar as 
+\i \cf0 TableSummaryTree 
+\i0 but contains only the subset of nodes\cf2 \
+		    
+\i SubsetSelectedCommu;
+\i0  This table is similar as 
+\i \cf0 TableSummaryTreeCommu 
+\i0 but contains only the subset of nodes\cf2 \
+		    
+\i LabelsOutput;
+\i0  This table contains the label of the nodes for the different subset found. The first column of labels corresponds to the first row of the two tables, and so on.\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\
+\
+\
+\
+\
+\
+}
