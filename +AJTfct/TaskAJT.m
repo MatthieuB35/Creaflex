@@ -44,7 +44,7 @@ for WhichIteration = 1:NumberItems
     end
     
     %Display on screen the scale + the cues
-    AJTfct.Display_AJT(2,WhichItem,NormalColor,0,xCenter,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
+    AJTfct.Display_AJT(2,WhichItem,NormalColor,0,xCenter,sliderColorThink,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
     
     %Wait for X seconds, depending of the time need to think
     WaitSecs(TimeToThink)
@@ -99,7 +99,7 @@ for WhichIteration = 1:NumberItems
         end
         
         %Display on screen the scale + the cues + the slider
-        AJTfct.Display_AJT(2,WhichItem,wordColor,1,x,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
+        AJTfct.Display_AJT(2,WhichItem,wordColor,1,x,sliderColorThink,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
         
         % Check if answer has been given
         if strcmp(device, 'mouse') && Moved==1
@@ -120,21 +120,33 @@ for WhichIteration = 1:NumberItems
         end
 
     end
-    
+
     %Display in the command windows the different trials
     disp(['For iteration' num2str(WhichIteration) 'answer=' num2str(answer)]);
     
+    AJTfct.Display_AJT(2,WhichItem,wordColor,1,x,sliderColorSelection,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
+    
+    %Slider etc stay in screen for X time 
+    RT= secs - t0;
+    SelectionLeft=aborttime-RT;
+    WaitSecs(SelectionLeft)
+    
+    %If press Escape delete
     [KeyIsDown,~, keyCode] = KbCheck;
     if KeyIsDown && keyCode(EscKey)
         disp('User breaks loop');
         break
     end
     
+    %Fill up screen in black while ITI
+    Screen('FillRect', window, [0 0 0])
+    Screen('Flip', window);
+    
     %Wait for 1 seconds before the next trial
     WaitSecs(0.5)
     
     % converting RT to seconds
-    RT= secs - t0;
+    %RT= secs - t0;
     
     % Calculates the range of the scale
     scaleRange= round(rect(3)*(1-scalaLength)):round(rect(3)*scalaLength);

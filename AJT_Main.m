@@ -40,6 +40,8 @@ elseif strcmp(WhichScreen,'CENIRb')
     aborttimeNumber = 2; %Abort time for the motor training
 end
 
+HideCursor(OutputScreen)
+
 if strcmp(Type,'default')
     WordList_AllTrial=importdata([path '@AJTlists/AJTList_shuffle_DefaultNounsOnly1.mat']);
 elseif strcmp(Type,'nouns')
@@ -69,13 +71,13 @@ end
 if TrainingNormal==1
     AJTfct.Display_Instructions(InstructionScreensPart2,EncodingInstruction,NormalColor,path,screenXpixels,screenYpixels,InstructFontChg,window)
     OutputNormalTraining=AJTfct.NormalTrainingAJT(NumberTrainingNormal,WordList_Training,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect,xCenter, yCenter,aborttime);
-    Output.NormalTraining=OutputNormalTraining;
+    Output.NormalTraining=OutputNormalTraining;  
     if Save==1
         save(['AJT_Pilot_PN' PN],'Output')
     end
 end
 
-
+     
 %Main task
 if strcmp(WhichTask,'fMRI')
     AJTfct.Display_Instructions(InstructionScreensPart3,EncodingInstruction,NormalColor,path,screenXpixels,screenYpixels,InstructFontChg,window)

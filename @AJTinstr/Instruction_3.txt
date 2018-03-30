@@ -1,6 +1,6 @@
 Vous allez maintenant passer un nouvel entrainement afin
 \n de vous familiariser avec la tâche principale.
 \n Vous allez voir apparaître 2 mots au centre de l`écran.
-\n Vous devrez choisir en déplaçant le curseur si vous pensez que 
-\n ces 2 mots sont: pas du tout lie (Gauche) ou très lie (Droite).
+\n Vous devrez évaluer la paire de mots avec l`échelle allant de
+\n Gauche (pas du tout lié) à Droite (très lié).
 \n\n Appuyez sur Espace pour commencer.

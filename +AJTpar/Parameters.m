@@ -9,7 +9,9 @@ lineLength    = 10; %Line length of the scale
 width         = 5; %Width fo the scale
 scalaLength   = 0.6; %Length of the marker in the scale
 scalaPosition = 0.5; %Position of the marker in the scale
-sliderColor    = [255 0 0]; % color of the slider; Red
+sliderColorThink    = [255 0 0]; % color of the slider; Red
+sliderColorSelection    = [0 255 0]; % color of the slider; green
+
 lineLengthSlider= 20; %Length of the slider
 scaleColor = [0 255 0]; %Color of the scale; grey
 NormalColor=[255 255 255];

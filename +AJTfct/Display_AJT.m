@@ -1,4 +1,4 @@
-function Display_AJT(HowManyCues,WhichItem,WhichColor,IsSlider,PositionSlider,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
+function Display_AJT(HowManyCues,WhichItem,WhichColorCues,IsSlider,PositionSlider,WhichColorSlider,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
 
 AJTpar.Parameters
 
@@ -22,7 +22,7 @@ if HowManyCues == 1
     else
         error('The item to be display should be a numeric or a character value.')
     end
-    DrawFormattedText(window,TempDisp,'center', rect(4)*(scalaPosition*CuesPositionYChg),WhichColor);
+    DrawFormattedText(window,TempDisp,'center', rect(4)*(scalaPosition*CuesPositionYChg),WhichColorCues);
     
 else
     if length(WhichItem)==2 && iscell(WhichItem) ==1
@@ -34,15 +34,15 @@ else
     
     %Draw the left item to get the size of the string so it can moved and
     %leave the same space between the two cues for each trial
-    [~, ~, textBounds]=DrawFormattedText(window,textString_Left_CurrIt,LeftScreenPosition, rect(4)*(scalaPosition*CuesPositionYChg),WhichColor); %Left item
+    [~, ~, textBounds]=DrawFormattedText(window,textString_Left_CurrIt,LeftScreenPosition, rect(4)*(scalaPosition*CuesPositionYChg),WhichColorCues); %Left item
     DisplaceText=textBounds(3)-textBounds(1);
     
     %Fill the screen in black
     Screen('FillRect', window, [0 0 0])
     
     % Drawing the two cues as text
-    DrawFormattedText(window, textString_Left_CurrIt,LeftScreenPosition-DisplaceText, rect(4)*(scalaPosition*CuesPositionYChg),WhichColor);%/4-100
-    DrawFormattedText(window, textString_Right_CurrIt,RightScreenPosition,rect(4)*(scalaPosition*CuesPositionYChg),WhichColor);
+    DrawFormattedText(window, textString_Left_CurrIt,LeftScreenPosition-DisplaceText, rect(4)*(scalaPosition*CuesPositionYChg),WhichColorCues);%/4-100
+    DrawFormattedText(window, textString_Right_CurrIt,RightScreenPosition,rect(4)*(scalaPosition*CuesPositionYChg),WhichColorCues);
     
 end
 
@@ -64,7 +64,7 @@ Screen('DrawLine', window, scaleColor, horzLine(1), horzLine(2), horzLine(3), ho
 
 
 if IsSlider == 1 && exist('PositionSlider','var')
-    Screen('DrawLine', window, sliderColor, PositionSlider, rect(4)*scalaPosition - lineLengthSlider, PositionSlider, rect(4)*scalaPosition  + lineLengthSlider, width);
+    Screen('DrawLine', window, WhichColorSlider, PositionSlider, rect(4)*scalaPosition - lineLengthSlider, PositionSlider, rect(4)*scalaPosition  + lineLengthSlider, width);
 elseif ~exist('PositionSlider','var')
     error('Need to enter the position of the slider for its creation.')
 end
