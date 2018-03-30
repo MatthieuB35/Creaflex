@@ -6,18 +6,15 @@ sca;
 close all;
 clearvars;
 
-
+%Create the GUI
 OutputGUI=GUI_AJT;
 
-
-%Silent the input from keyboard
-%ListenChar(2)
-
-Parameters
-
-Output=struct;
+%Import parameters and create one from GUI
+AJTpar.Parameters    
 
 Type='default';
+
+Output=struct;
 WhichScreen=OutputGUI.ScreenDisplay{1};%Define the screen where the display should be on
 PN=OutputGUI.ParticipantNumber;
 Save=OutputGUI.SaveData;
@@ -26,6 +23,8 @@ TrainingNormal=OutputGUI.DoNormalTraining;
 
 NumberTrainingMotor=str2double(OutputGUI.MotorTraining);
 NumberTrainingNormal=str2double(OutputGUI.NormalTraining);
+
+WhichTask=OutputGUI.WhichTask;
 
 if strcmp(WhichScreen,'Testing')
     OutputScreen= 0; %Testing
@@ -42,37 +41,55 @@ elseif strcmp(WhichScreen,'CENIRb')
 end
 
 if strcmp(Type,'default')
-    WordList_AllTrial=importdata([path 'AJTList_shuffle_DefaultNounsOnly1.mat']);
+    WordList_AllTrial=importdata([path '@AJTlists/AJTList_shuffle_DefaultNounsOnly1.mat']);
 elseif strcmp(Type,'nouns')
-    WordList_AllTrial=importdata([path 'AJTList_shuffle_DefaultSelect1.mat']);
+    WordList_AllTrial=importdata([path '@AJTlists/AJTList_shuffle_DefaultSelect1.mat']);
 end
 
-WordList_Training=importdata([path 'AJTList_shuffle_Pilot.mat']);
+WordList_Training=importdata([path '@AJTlists/AJTList_shuffle_Pilot.mat']);
 
-Screen_parameters
+AJTpar.Screen_parameters
 
+%Silent the input from keyboard
+%ListenChar(2)
 
-
+%%
+%Motor Training
 if TrainingMotor==1
-    Display_Instructions(InstructionScreensPart1,EncodingInstruction,NormalColor,path,screenXpixels,screenYpixels,InstructFontChg,window)
-    OutputMotorTraining=MotorTrainingAJT(NumberTrainingMotor,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect,xCenter, yCenter,aborttimeNumber);
+    AJTfct.Display_Instructions(InstructionScreensPart1,EncodingInstruction,NormalColor,path,screenXpixels,screenYpixels,InstructFontChg,window)
+    OutputMotorTraining=AJTfct.MotorTrainingAJT(NumberTrainingMotor,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect,xCenter, yCenter,aborttimeNumber);
     Output.MotorTraining=OutputMotorTraining;
+    if Save==1
+        save(['AJT_Pilot_PN' PN],'Output')
+    end
 end
- 
-     
 
+
+%Normal training     
 if TrainingNormal==1
-    Display_Instructions(InstructionScreensPart2,EncodingInstruction,NormalColor,path,screenXpixels,screenYpixels,InstructFontChg,window)
-    OutputNormalTraining=NormalTrainingAJT(NumberTrainingNormal,WordList_Training,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect,xCenter, yCenter,aborttime);
+    AJTfct.Display_Instructions(InstructionScreensPart2,EncodingInstruction,NormalColor,path,screenXpixels,screenYpixels,InstructFontChg,window)
+    OutputNormalTraining=AJTfct.NormalTrainingAJT(NumberTrainingNormal,WordList_Training,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect,xCenter, yCenter,aborttime);
     Output.NormalTraining=OutputNormalTraining;
+    if Save==1
+        save(['AJT_Pilot_PN' PN],'Output')
+    end
 end
 
-Display_Instructions(InstructionScreensPart3,EncodingInstruction,NormalColor,path,screenXpixels,screenYpixels,InstructFontChg,window)
 
-OutputTask=NormalTrainingAJT(3,WordList_AllTrial,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect,xCenter, yCenter,aborttime);
-Output.Task=OutputTask;
+%Main task
+if strcmp(WhichTask,'fMRI')
+    AJTfct.Display_Instructions(InstructionScreensPart3,EncodingInstruction,NormalColor,path,screenXpixels,screenYpixels,InstructFontChg,window)
+    OutputTask=AJTfct.TaskAJT(1,WordList_AllTrial,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect,xCenter, yCenter,aborttime);
+    Output.Task=OutputTask;
+elseif strcmp(WhichTask,'PRISM') 
+    Break=str2double(OutputGUI.WhenPause);
+    AJTfct.Display_Instructions(InstructionScreensPart3,EncodingInstruction,NormalColor,path,screenXpixels,screenYpixels,InstructFontChg,window)
+    OutputTask=AJTfct.TaskAJT(5,WordList_AllTrial,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect,xCenter, yCenter,aborttime,Break);
+    Output.Task=OutputTask;
+end
 
-
+%%
+%Save
 if Save==1
     save(['AJT_Pilot_PN' PN],'Output')
 end

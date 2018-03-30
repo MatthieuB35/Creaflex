@@ -1,15 +1,31 @@
-function Output=NormalTrainingAJT(NumberItems,WordList_Training,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect,xCenter, yCenter,aborttime)
+function Output=TaskAJT(NumberItems,WordList_AllTrial,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect,xCenter, yCenter,aborttime,Break)
 
-Parameters
+
+if nargin ==13
+    DoBreak=0;
+elseif nargin ==14
+    DoBreak=1;
+    WhenPause=zeros(1,(100/Break));
+    TempCounter=0;
+    for CounterBreak = 1:(100/Break)
+        TempCounter=TempCounter+NumberItems*(Break/100);
+        WhenPause(CounterBreak)=TempCounter;
+    end
+else
+    error('Problem in the arguments of the function')
+end
+
+AJTpar.Parameters 
 
 
 x=xCenter;
 
+
 SetMouse(round(x), round(rect(4)*scalaPosition));
 
-Answer_given_training=NaN(NumberItems,3);
+Answer_given_WordPair=NaN(NumberItems,3);
 
-for WhichIterationTraining = 1:NumberItems
+for WhichIteration = 1:NumberItems
     
     %Select a random number between 1 and 2.
     LeftOrRight_rnd=unidrnd(2,1);
@@ -18,18 +34,17 @@ for WhichIterationTraining = 1:NumberItems
     %second on the right.
     %If the number is two, it will be the opposite.
     if LeftOrRight_rnd==1
-        textString_Left_CurrIt = char(WordList_Training{WhichIterationTraining,1});
-        textString_Right_CurrIt = char(WordList_Training{WhichIterationTraining,2});
+        textString_Left_CurrIt = char(WordList_AllTrial{WhichIteration,1});
+        textString_Right_CurrIt = char(WordList_AllTrial{WhichIteration,2});
         WhichItem={textString_Left_CurrIt; textString_Right_CurrIt};
     else
-        textString_Left_CurrIt = char(WordList_Training{WhichIterationTraining,2});
-        textString_Right_CurrIt = char(WordList_Training{WhichIterationTraining,1});
+        textString_Left_CurrIt = char(WordList_AllTrial{WhichIteration,2});
+        textString_Right_CurrIt = char(WordList_AllTrial{WhichIteration,1});
         WhichItem={textString_Left_CurrIt; textString_Right_CurrIt};
     end
     
-    
     %Display on screen the scale + the cues
-    Display_AJT(2,WhichItem,NormalColor,0,xCenter,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
+    AJTfct.Display_AJT(2,WhichItem,NormalColor,0,xCenter,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
     
     %Wait for X seconds, depending of the time need to think
     WaitSecs(TimeToThink)
@@ -64,9 +79,7 @@ for WhichIterationTraining = 1:NumberItems
             %Get the position of the mouse
             [x,~,buttons,~,~,~] = GetMouse(window, MouseDeviceIndex);
         elseif strcmp(device, 'keyboard')
-            %Check the keyboard
             [keyIsDown,~, keyCode] = KbCheck;
-            %Change the position of the cursor using left and right arrows
             if keyCode(leftKey)
                 x = x - pixelsPerPress;
             elseif keyCode(rightKey)
@@ -74,7 +87,7 @@ for WhichIterationTraining = 1:NumberItems
             end
         end
         
-        %Change speed for cursor
+        % change speed for cursor
         dx = x - x_prev;
         x = x_prev + dx*MouseSpeedFactor;
         
@@ -86,10 +99,9 @@ for WhichIterationTraining = 1:NumberItems
         end
         
         %Display on screen the scale + the cues + the slider
-        Display_AJT(2,WhichItem,wordColor,1,x,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
+        AJTfct.Display_AJT(2,WhichItem,wordColor,1,x,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
         
-        % Check if answer has been given and if the cursos has moved a
-        % little
+        % Check if answer has been given
         if strcmp(device, 'mouse') && Moved==1
             secs = GetSecs;
             if buttons(responseKey) == 1
@@ -106,10 +118,17 @@ for WhichIterationTraining = 1:NumberItems
         if secs - t0 > aborttime
             break
         end
+
     end
     
-    %Display in the command windows the
-    disp(['For iteration' num2str(WhichIterationTraining) 'answer=' num2str(answer)]);
+    %Display in the command windows the different trials
+    disp(['For iteration' num2str(WhichIteration) 'answer=' num2str(answer)]);
+    
+    [KeyIsDown,~, keyCode] = KbCheck;
+    if KeyIsDown && keyCode(EscKey)
+        disp('User breaks loop');
+        break
+    end
     
     %Wait for 1 seconds before the next trial
     WaitSecs(0.5)
@@ -134,10 +153,18 @@ for WhichIterationTraining = 1:NumberItems
     
     %Enter the answer in the scale, the reaction time and if the
     %participant answered into the variable
-    Answer_given_training(WhichIterationTraining,:)=[position, RT, answer];
+    Answer_given_WordPair(WhichIteration,:)=[position, RT, answer];
+    
+     if DoBreak==1 && ismember(WhichIteration,WhenPause)
+        AJTfct.Break(window,NormalColor)
+    end
+    
+    
+
 end
 
-Output=Answer_given_training;
+
+Output=Answer_given_WordPair;
 
 
 end

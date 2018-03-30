@@ -1,6 +1,6 @@
 function Display_AJT(HowManyCues,WhichItem,WhichColor,IsSlider,PositionSlider,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
 
-Parameters
+AJTpar.Parameters
 
 %Modification of the fontsize of the instruction,cues and endpoints
 SizeFontModifyCues=round((screenXpixels-screenYpixels)*CuesFontChg);

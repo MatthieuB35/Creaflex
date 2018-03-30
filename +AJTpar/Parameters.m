@@ -27,6 +27,7 @@ EncodingInstruction='UTF-8'; %Specify the encoding of the instruction file
 EncodingFile='Macintosh'; %Specify the encoding of the txt file
 leftKey = KbName('LeftArrow'); %GetName of left arrow in keyboard
 rightKey = KbName('RightArrow'); %GetName of right arrow in keyboard
+EscKey=KbName('ESCAPE');
 pixelsPerPress = 10; % Movement of pixel per change if keyboard
 PercentToMove=0.05; %Percent to move the cursor before can do something
 InstructFontChg=0.07; %Modify the font size of the instruction

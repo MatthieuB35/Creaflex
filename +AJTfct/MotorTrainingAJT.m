@@ -1,6 +1,6 @@
 function Output=MotorTrainingAJT(NumberItems,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect,xCenter, yCenter,aborttimeNumber)
 
-Parameters
+AJTpar.Parameters
 
 x=xCenter;
 
@@ -17,7 +17,7 @@ for WhichIterationNumber = 1:NumberItems
     NumberTemp=unidrnd(100,1);
     
     %Display on screen the scale + the cue
-    Display_AJT(1,NumberTemp,NormalColor,0,xCenter,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
+    AJTfct.Display_AJT(1,NumberTemp,NormalColor,0,xCenter,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
     
     %Wait for X seconds, depending of the time need to think
     WaitSecs(TimeToThink)
@@ -65,7 +65,7 @@ for WhichIterationNumber = 1:NumberItems
         end
         
         %Display on screen the scale + the cue + the slider
-        Display_AJT(1,NumberTemp,wordColor,1,x,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
+        AJTfct.Display_AJT(1,NumberTemp,wordColor,1,x,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
         
         % Check if answer has been given
         if strcmp(device, 'mouse')

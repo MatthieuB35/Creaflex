@@ -22,17 +22,17 @@ function varargout = GUI_AJT(varargin)
 
 % Edit the above text to modify the response to help GUI_AJT
 
-% Last Modified by GUIDE v2.5 27-Mar-2018 14:03:17
+% Last Modified by GUIDE v2.5 30-Mar-2018 11:29:27
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
 
 gui_State = struct('gui_Name',       mfilename, ...
-                   'gui_Singleton',  gui_Singleton, ...
-                   'gui_OpeningFcn', @GUI_AJT_OpeningFcn, ...
-                   'gui_OutputFcn',  @GUI_AJT_OutputFcn, ...
-                   'gui_LayoutFcn',  [] , ...
-                   'gui_Callback',   []);
+    'gui_Singleton',  gui_Singleton, ...
+    'gui_OpeningFcn', @GUI_AJT_OpeningFcn, ...
+    'gui_OutputFcn',  @GUI_AJT_OutputFcn, ...
+    'gui_LayoutFcn',  [] , ...
+    'gui_Callback',   []);
 if nargin && ischar(varargin{1})
     gui_State.gui_Callback = str2func(varargin{1});
 end
@@ -65,7 +65,7 @@ uiwait(handles.figure1);
 
 
 % --- Outputs from this function are returned to the command line.
-function varargout = GUI_AJT_OutputFcn(hObject, eventdata, handles) 
+function varargout = GUI_AJT_OutputFcn(hObject, eventdata, handles)
 % varargout  cell array for returning output args (see VARARGOUT);
 % hObject    handle to figure
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -74,15 +74,12 @@ function varargout = GUI_AJT_OutputFcn(hObject, eventdata, handles)
 OutputGUI=struct;
 OutputGUI.ParticipantNumber=get(handles.edit3, 'String');
 
+%Screen
 TempScreenDisplayValue=get(handles.listbox1, 'Value');
 TempScreenDisplay=get(handles.listbox1, 'String');
 OutputGUI.ScreenDisplay=TempScreenDisplay(TempScreenDisplayValue);
 
-OutputGUI.DoMotorTraining=get(handles.checkbox2, 'Value');
-OutputGUI.MotorTraining=get(handles.text11, 'String');
-OutputGUI.DoNormalTraining=get(handles.checkbox3, 'Value');
-OutputGUI.NormalTraining=get(handles.text7, 'String');
-
+%Save
 TempSaveValueYes=get(handles.radiobutton1, 'Value');
 if TempSaveValueYes == 1
     TempSave=1;
@@ -91,8 +88,24 @@ else
 end
 OutputGUI.SaveData=TempSave;
 
-OutputGUI.ScanSeq=get(handles.edit4, 'String');
-OutputGUI.WhichRun=get(handles.edit5, 'String');
+%Motor training
+OutputGUI.DoMotorTraining=get(handles.checkbox2, 'Value');
+OutputGUI.MotorTraining=get(handles.text11, 'String');
+
+%Normal training
+OutputGUI.DoNormalTraining=get(handles.checkbox3, 'Value');
+OutputGUI.NormalTraining=get(handles.text7, 'String');
+
+%Main Task
+if get(handles.radiobutton6,'value')==1
+    OutputGUI.WhichTask='fMRI';
+    OutputGUI.ScanSeq=get(handles.edit4, 'String');
+    OutputGUI.WhichRun=get(handles.edit5, 'String');
+else
+    OutputGUI.WhichTask='PRISM';
+    OutputGUI.WhenPause=get(handles.text15, 'String');
+end
+
 
 handles.OutputData=OutputGUI;
 
@@ -116,13 +129,13 @@ function slider1_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-    % set the name field within the (local) handles structure
-    OutputTraining = get(hObject,'value');
-    
-    set(handles.text7, 'String', num2str(round(OutputTraining)));
-    
-    %assignin('base','result',dotPr)
-    %Setappdata(hObject,'result', OutputTraining)
+% set the name field within the (local) handles structure
+OutputTraining = get(hObject,'value');
+
+set(handles.text7, 'String', num2str(round(OutputTraining)));
+
+%assignin('base','result',dotPr)
+%Setappdata(hObject,'result', OutputTraining)
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
 
@@ -261,12 +274,12 @@ function text7_CreateFcn(hObject, eventdata, handles)
 % hObject    handle to text7 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
-% 
+%
 % function text7_Callback(hObject, eventdata, handles)
 % handles = guidata(hObject);
 %     if isfield(handles,'Output')
 %         % display the name
-%         
+%
 %     end
 
 
@@ -276,9 +289,9 @@ function slider5_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 % set the name field within the (local) handles structure
-    OutputTrainingMotor = get(hObject,'value');
-    
-    set(handles.text11, 'String', num2str(round(OutputTrainingMotor)));
+OutputTrainingMotor = get(hObject,'value');
+
+set(handles.text11, 'String', num2str(round(OutputTrainingMotor)));
 
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
@@ -348,9 +361,7 @@ function radiobutton1_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-if get(handles.radiobutton1, 'Value')==1
-    set(handles.radiobutton2, 'Value',0);
-end
+
 
 
 
@@ -359,6 +370,75 @@ function radiobutton2_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-if get(handles.radiobutton2, 'Value')==1
-    set(handles.radiobutton1, 'Value',0);
+
+
+
+% --- Executes on button press in checkbox4.
+function checkbox4_Callback(hObject, eventdata, handles)
+% hObject    handle to checkbox4 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of checkbox4
+
+
+% --- Executes on button press in radiobutton6.
+function radiobutton6_Callback(hObject, eventdata, handles)
+% hObject    handle to radiobutton6 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of radiobutton6
+if get(hObject, 'Value')==1
+    set(handles.edit4, 'Visible', 'on');
+    set(handles.edit5, 'Visible', 'on');
+    set(handles.text12,'Visible', 'on');
+    set(handles.text13,'Visible', 'on');
+    
+    set(handles.slider6,'Visible', 'off');
+    set(handles.text14,'Visible', 'off');
+    set(handles.text15,'Visible', 'off');
+end
+
+
+% --- Executes on button press in radiobutton7.
+function radiobutton7_Callback(hObject, eventdata, handles)
+% hObject    handle to radiobutton7 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of radiobutton7
+if get(hObject, 'Value')==1
+    set(handles.edit4, 'Visible', 'off');
+    set(handles.edit5, 'Visible', 'off');
+    set(handles.text12,'Visible', 'off');
+    set(handles.text13,'Visible', 'off');
+    
+    set(handles.slider6,'Visible', 'on');
+    set(handles.text14,'Visible', 'on');
+    set(handles.text15,'Visible', 'on');
+end
+
+
+% --- Executes on slider movement.
+function slider6_Callback(hObject, eventdata, handles)
+% hObject    handle to slider6 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'Value') returns position of slider
+%        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
+Output= get(hObject,'value');
+
+set(handles.text15, 'String', num2str(round(Output)));
+
+% --- Executes during object creation, after setting all properties.
+function slider6_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to slider6 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: slider controls usually have a light gray background.
+if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor',[.9 .9 .9]);
 end
