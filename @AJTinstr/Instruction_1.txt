@@ -2,8 +2,11 @@ Vous allez maintenant pouvoir vous entrainer pour vous
 \n familiariser avec le trackball. Dans cet entrainement, vous allez
 \n voir un chiffre apparaitre et vous devrez placer le curseur sur la 
 \n position la plus proche de ce chiffre, sur l'échelle.
-\n Pour validez votre position, vous devez cliquer sur le bouton de la souris. 
-\n Vous passerez alors automatiquement au chiffre suivant et procéderez de meme.
+\n Pour validez votre position, vous devez cliquer sur 
+\n le bouton de la souris. 
+\n Vous passerez alors automatiquement au chiffre suivant 
+\n et procéderez de meme.
 \n\n Appuyez sur Espace si vous avez compris.
+
 
 
