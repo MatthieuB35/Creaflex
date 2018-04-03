@@ -1,4 +1,4 @@
-function Display_AJT(HowManyCues,WhichItem,WhichColorCues,IsSlider,PositionSlider,WhichColorSlider,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
+function OnsetDisplay=Display_AJT(HowManyCues,WhichItem,WhichColorCues,IsSlider,PositionSlider,WhichColorSlider,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
 
 AJTpar.Parameters
 
@@ -38,7 +38,7 @@ else
     DisplaceText=textBounds(3)-textBounds(1);
     
     %Fill the screen in black
-    Screen('FillRect', window, [0 0 0])
+    Screen('FillRect', window, [0 0 0]);
     
     % Drawing the two cues as text
     DrawFormattedText(window, textString_Left_CurrIt,LeftScreenPosition-DisplaceText, rect(4)*(scalaPosition*CuesPositionYChg),WhichColorCues);%/4-100
@@ -71,7 +71,7 @@ end
 
 
 
-Screen('Flip', window);
+OnsetDisplay=Screen('Flip', window);
 
 
 

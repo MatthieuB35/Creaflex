@@ -1,9 +1,9 @@
-function Output=TaskAJT(NumberItems,WordList_AllTrial,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect,xCenter, yCenter,aborttime,Break)
+function Output=TaskAJT(NumberItems,WordList_AllTrial,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect,xCenter, yCenter,aborttime,ITI,Break)
 
 
-if nargin ==13
+if nargin ==14
     DoBreak=0;
-elseif nargin ==14
+elseif nargin ==15
     DoBreak=1;
     WhenPause=zeros(1,(100/Break));
     TempCounter=0;
@@ -15,15 +15,15 @@ else
     error('Problem in the arguments of the function')
 end
 
-AJTpar.Parameters 
-
+AJTpar.Parameters
 
 x=xCenter;
 
-
 SetMouse(round(x), round(rect(4)*scalaPosition));
 
-Answer_given_WordPair=NaN(NumberItems,3);
+Answer_given_WordPair=cell(NumberItems,10);
+
+StartTrial=GetSecs;
 
 for WhichIteration = 1:NumberItems
     
@@ -44,14 +44,18 @@ for WhichIteration = 1:NumberItems
     end
     
     %Display on screen the scale + the cues
-    AJTfct.Display_AJT(2,WhichItem,NormalColor,0,xCenter,sliderColorThink,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
+    OnsetThink=AJTfct.Display_AJT(2,WhichItem,NormalColor,0,xCenter,sliderColorThink,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect);
     
     %Wait for X seconds, depending of the time need to think
     WaitSecs(TimeToThink)
     
+    
+    
     %Set up the timer
     t0= GetSecs;
     secs = GetSecs;
+    
+    TimeStampThink=t0-OnsetThink;
     
     %Set up the answer given at 0.
     answer= 0;
@@ -118,16 +122,17 @@ for WhichIteration = 1:NumberItems
         if secs - t0 > aborttime
             break
         end
-
+        
     end
-
+    
     %Display in the command windows the different trials
     disp(['For iteration' num2str(WhichIteration) 'answer=' num2str(answer)]);
     
-    AJTfct.Display_AJT(2,WhichItem,wordColor,1,x,sliderColorSelection,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
+    OnsetResponse=AJTfct.Display_AJT(2,WhichItem,wordColor,1,x,sliderColorSelection,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect);
     
-    %Slider etc stay in screen for X time 
+    %Slider etc stay in screen for X time
     RT= secs - t0;
+    
     SelectionLeft=aborttime-RT;
     WaitSecs(SelectionLeft)
     
@@ -140,13 +145,11 @@ for WhichIteration = 1:NumberItems
     
     %Fill up screen in black while ITI
     Screen('FillRect', window, [0 0 0])
-    Screen('Flip', window);
+    OnsetITI=Screen('Flip', window);
     
     %Wait for 1 seconds before the next trial
-    WaitSecs(0.5)
-    
-    % converting RT to seconds
-    %RT= secs - t0;
+    JitteredITI=ITI(WhichIteration)*0.001;
+    WaitSecs(JitteredITI)
     
     % Calculates the range of the scale
     scaleRange= round(rect(3)*(1-scalaLength)):round(rect(3)*scalaLength);
@@ -163,16 +166,26 @@ for WhichIteration = 1:NumberItems
     %Converts to a scale from 0 to 100
     position= round(position/2)+50;
     
+    EndTrial=GetSecs;
+    
     %Enter the answer in the scale, the reaction time and if the
     %participant answered into the variable
-    Answer_given_WordPair(WhichIteration,:)=[position, RT, answer];
+    Answer_given_WordPair{WhichIteration,1}=textString_Left_CurrIt;
+    Answer_given_WordPair{WhichIteration,2}=textString_Right_CurrIt;
+    Answer_given_WordPair{WhichIteration,3}=position;
+    Answer_given_WordPair{WhichIteration,4}=OnsetThink-StartTrial;
+    Answer_given_WordPair{WhichIteration,5}=TimeStampThink;
+    Answer_given_WordPair{WhichIteration,6}=RT;
+    Answer_given_WordPair{WhichIteration,7}=OnsetITI-OnsetResponse;
+    Answer_given_WordPair{WhichIteration,8}=JitteredITI;
+    Answer_given_WordPair{WhichIteration,9}=EndTrial-OnsetITI;
+    Answer_given_WordPair{WhichIteration,10}=answer;
     
-     if DoBreak==1 && ismember(WhichIteration,WhenPause)
+    if DoBreak==1 && ismember(WhichIteration,WhenPause)
         AJTfct.Break(window,NormalColor)
     end
     
-    
-
+    StartTrial=GetSecs;
 end
 
 

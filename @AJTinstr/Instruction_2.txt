@@ -1,6 +1,0 @@
-Vous verrez le chiffre pendant 2 secondes. Puis quand ce chiffre
-\n devient jaune, vous pourrez répondre.
-\n Répondez le plus vite possible.
-\n Vous devez déplacer le curseur en dehors du milieu pour
-\n pouvoir répondre.
-\n\n Appuyez sur Espace pour commencer.

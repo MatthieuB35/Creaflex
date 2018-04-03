@@ -2,6 +2,7 @@
 
 %Call some default settings for setting up Psychtoolbox or Debug mode
 %PsychDefaultSetup(2);
+%Screen('Preference', 'SkipSyncTests', 0)
 
 PsychDebugWindowConfiguration
 

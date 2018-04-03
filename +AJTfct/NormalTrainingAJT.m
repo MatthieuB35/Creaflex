@@ -2,7 +2,6 @@ function Output=NormalTrainingAJT(NumberItems,WordList_Training,window,screenXpi
 
 AJTpar.Parameters
 
-
 x=xCenter;
 
 SetMouse(round(x), round(rect(4)*scalaPosition));
@@ -153,6 +152,15 @@ for WhichIterationTraining = 1:NumberItems
     %Enter the answer in the scale, the reaction time and if the
     %participant answered into the variable
     Answer_given_training(WhichIterationTraining,:)=[position, RT, answer];
+    
+    
+    if ismember(WhichIterationTraining,WhenCrossTraining)
+        %Fixation across appear for 30s
+        AJTfct.FixationCross(8,NormalColor,window,screenXpixels, screenYpixels,xCenter, yCenter)
+        %2s before end, change of colour
+        AJTfct.FixationCross(2,wordColor,window,screenXpixels, screenYpixels,xCenter, yCenter)
+    end
+    
 end
 
 Output=Answer_given_training;

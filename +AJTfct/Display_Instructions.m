@@ -11,7 +11,7 @@ for InstructionNumber= 1:length(ListNumberInstructions)
     Screen('TextSize', window, SizeFontModifyInstruct);
     
     %Import the data for the instruction
-    TempInstructionFile = fopen([path '@AJTinstr/Instruction_' num2str(ListNumberInstructions(InstructionNumber)) '.txt'],'r+','n',EncodingInstruction);
+    TempInstructionFile = fopen([path 'AJTinstr/Instruction_' num2str(ListNumberInstructions(InstructionNumber)) '.txt'],'r+','n',EncodingInstruction);
     
     %Scan all the lines of the instructions and put it in a variable
     TempInstruction = textscan(TempInstructionFile,'%s','delimiter','\n');

@@ -18,6 +18,9 @@ NormalColor=[255 255 255];
 wordColor = [255 255 0]; %Color of the word when need to choose; Yellow
 device = 'mouse'; %Which device to use the scale. 
 
+fixCrossDim=0.05; %Size fixation Cross
+lineWidthPix=0.01; %Width fixation Cross
+
 TimeToThink=2; %Decide the number of seconds where participants have the time to think
 responseKey   = KbName('return'); %Return the keycode for the key 'return'
 startPosition = 'center'; %Select the start position of the cursor
@@ -51,3 +54,6 @@ if IsWindows || IsOSX
 elseif IsLinux
     MouseDeviceIndex = 12; % Linux -> trackball
 end
+
+
+WhenCrossTraining=[4,8,12];

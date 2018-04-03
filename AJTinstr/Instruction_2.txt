@@ -1,0 +1,16 @@
+Vous verrez le chiffre pendant quelques secondes. 
+\n Pendant les 2 premières secondes, nous réfléchissez à votre réponse, 
+\n à la position du chiffre sur l’échelle, mais ne pouvez pas encore répondre.
+\n Après 2 secondes, lorsque ce chiffre devient jaune, 
+\n vous pourrez déplacer le curseur et ainsi répondre. 
+\n Une fois la position souhaitez atteinte sur l’échelle, validez la 
+\n en cliquant sur le trackball par un clic gauche. Apres avoir cliqué, 
+\n l`essai suivant s`affichera automatiquement.
+\n Répondez le plus vite possible.
+\n Vous ne pouvez pas valider votre réponse par un clic avant d’avoir 
+\n bougé le curseur, meme si vous souhaitez le positionner au milieu 
+\n de l’échelle.
+\n\n Appuyez sur Espace pour commencer, si vous avez 
+\n bien compris les instructions.
+
+
