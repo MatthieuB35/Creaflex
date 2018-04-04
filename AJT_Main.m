@@ -82,13 +82,6 @@ if TrainingNormal==1
     end
 end
 
-%Fixation across appear for 30s
-        AJTfct.FixationCross(18,NormalColor,window,screenXpixels, screenYpixels,xCenter, yCenter)
-        %2s before end, change of colour
-        AJTfct.FixationCross(2,wordColor,window,screenXpixels, screenYpixels,xCenter, yCenter)
-
-
-
 %Main task
 if strcmp(WhichTask,'fMRI') && WhichRun~=0
     AJTfct.Display_Instructions(InstructionScreensPart3,EncodingInstruction,NormalColor,path,screenXpixels,screenYpixels,InstructFontChg,window)

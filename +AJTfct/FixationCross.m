@@ -1,8 +1,8 @@
 function FixationCross(HowLong,ColourCross,window,screenXpixels, screenYpixels,xCenter, yCenter)
 
-AJTpar.Parameters
+AJTpar.Parameters;
 
-Screen('FillRect', window, [0 0 0])
+Screen('FillRect', window, [0 0 0]);
 
 % Here we set the size of the arms of our fixation cross
 SizeCrossModif=round((screenXpixels-screenYpixels)*fixCrossDim);
@@ -28,14 +28,11 @@ tStart = GetSecs;
 timedout = false;
 while ~timedout
     [ keyIsDown, keyTime, ~ ] = KbCheck;
+    
     if (keyIsDown)
+        %disp('User required break during fixation');
         %break;
-        ShowCursor;
-        ListenChar(0);
-        pause('off');
-        pause('on');
-        HideCursor;
-        ListenChar(2);
+       AJTfct.PauseButton
     end
     if ((keyTime - tStart) > HowLong)
         timedout = true;
