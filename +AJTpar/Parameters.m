@@ -24,7 +24,7 @@ lineWidthPix=0.01; %Width fixation Cross
 TimeToThink=2; %Decide the number of seconds where participants have the time to think
 responseKey   = KbName('return'); %Return the keycode for the key 'return'
 startPosition = 'center'; %Select the start position of the cursor
-endPoints={'0 = Pas du tout Liï¿½', '100= Complï¿½tement liï¿½'}; %Which word there is at the end of the scale
+endPoints={'0 = Pas du tout Lié', '100= Complètement lié'}; %Which word there is at the end of the scale
 InstructionScreensPart1=[1;2;3]; %Instruction at the beginning
 InstructionScreensPart2=[4;5;6]; %Instruction after motor training and before normal training
 InstructionScreensPart3=7; %Instruction after normal training and experiment
