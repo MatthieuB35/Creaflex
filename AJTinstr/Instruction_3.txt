@@ -1,13 +1,8 @@
-Vous allez maintenant réaliser un nouvel entrainement afin
-\n de vous familiariser avec la tâche principale.
-\n Vous allez voir apparaître 2 mots au centre de l`écran. 
-\n Le jeu consiste à estimer à quel point ces mots ont un lien, 
-\n c’est à dire combien vous pensez que les mots présentés sont reliés, 
-\n proches ou non. 
-\n Pour noter à quel point ces 2 mots sont liés, vous utiliserez 
-\n une échelle visuelle sur laquelle vous placerez un curseur entre 
-\n 0 (pas du tout liés) et 100 (complètement liés, presque similaires). 
-\n Le 0 est à gauche de l`échelle, le 100 est à droite. 
-\n Toutes les valeurs sont possibles entre ces 2 extrêmes.
-\n Tout les mots présentés seront toujours des noms.
-\n\n Appuyez sur Espace si vous avez compris jusque-là.
+Apres avoir cliqué, 
+\n l`essai suivant s`affichera automatiquement.
+\n Répondez le plus vite possible.
+\n Vous ne pouvez pas valider votre réponse par un clic
+\n avant d’avoir bougé le curseur, meme si vous souhaitez 
+\n le positionner au milieu de l’échelle.
+\n\n Appuyez sur Espace pour commencer, si vous avez 
+\n bien compris les instructions.
