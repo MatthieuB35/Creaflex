@@ -1,18 +1,15 @@
-Les 2 mots resteront affichés à l’écran pendant quelques secondes. 
-\n Les 2 premières secondes, vous réfléchirez aux liens entre les 2 mots 
-\n sans pouvoir déplacer le curseur, le trackball n’est pas actif. 
-\n Après 2 secondes, le curseur devient vert et vous pouvez 
-\n le déplacer pour donner votre réponse. Pour déplacer le curseur, 
-\n utilisez le trackball. 
-\n Une fois la position souhaitez atteinte sur l’échelle, validez-la 
-\n en par un clic gauche avec le pouce.
-\n Répondez le plus vite possible, vous n’avez que 2 secondes pour le faire!
-\n Vous ne pouvez pas valider votre réponse par un clic 
-\n avant d’avoir bougé le curseur, meme si vous souhaitez 
-\n le positionner au milieu de l’échelle.
-\n Après avoir cliqué, l`essai suivant s`affichera automatiquement.
-
-\n\n Appuyez sur Espace pour commencer, si vous avez bien 
-\n compris les instructions.
+Vous allez maintenant réaliser un nouvel entrainement afin
+\n de vous familiariser avec la tâche principale.
+\n Vous allez voir apparaître 2 mots au centre de l`écran. 
+\n Le jeu consiste à estimer à quel point ces mots ont un 
+\n lien, c’est à dire combien vous pensez que les mots 
+\n présentés sont reliés, proches ou non. 
+\n Pour noter à quel point ces 2 mots sont liés, vous 
+\n utiliserez une échelle visuelle sur laquelle vous 
+\n placerez un curseur entre 0 (pas du tout liés) et 
+\n 100 (complètement liés, presque similaires). 
+\n Le 0 est à gauche de l`échelle, le 100 est à droite. 
+\n Toutes les valeurs sont possibles entre ces 2 extrêmes.
+\n\n Appuyez sur Espace si vous avez compris jusque-là.
 
 
