@@ -24,18 +24,23 @@ Screen('DrawLine', window,ColourCross, allCoords(2,1), allCoords(2,2), allCoords
 %Flip Screen
 Screen('Flip', window);
 
-%WaitSecs(HowLong)
-
-KeyIsDown = false;
-Starttime = GetSecs;
-CurrentTime=GetSecs;
-while (CurrentTime - Starttime) <= HowLong || KeyIsDown
-  [KeyIsDown, CurrentTime, ~] = KbCheck;
+tStart = GetSecs;
+timedout = false;
+while ~timedout
+    [ keyIsDown, keyTime, ~ ] = KbCheck;
+    if (keyIsDown)
+        %break;
+        ShowCursor;
+        ListenChar(0);
+        pause('off');
+        pause('on');
+        HideCursor;
+        ListenChar(2);
+    end
+    if ((keyTime - tStart) > HowLong)
+        timedout = true;
+    end
 end
 
-if KeyIsDown
-    pause
-    %return
-end
 
 end

@@ -1,5 +1,5 @@
 Vous verrez le chiffre pendant quelques secondes. 
-\n Pendant les 2 premières secondes, nous réfléchissez à votre réponse, 
+\n Pendant les 2 premières secondes, vous réfléchissez à votre réponse, 
 \n à la position du chiffre sur l’échelle, mais ne pouvez pas encore répondre.
 \n Après 2 secondes, lorsque ce chiffre devient jaune, 
 \n vous pourrez déplacer le curseur et ainsi répondre. 

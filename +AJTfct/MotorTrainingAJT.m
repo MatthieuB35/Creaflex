@@ -92,7 +92,7 @@ for WhichIterationNumber = 1:NumberItems
     
     AJTfct.Display_AJT(1,NumberTemp,wordColor,1,x,sliderColorSelection,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
     
-    %Slider etc stay in screen for X time 
+    %Slider etc stay in screen for X time
     RT= secs - t0;
     SelectionLeft=aborttimeNumber-RT;
     WaitSecs(SelectionLeft)
@@ -103,6 +103,22 @@ for WhichIterationNumber = 1:NumberItems
         disp('User breaks loop');
         break
     end
+    
+    
+    % Calculates the range of the scale
+    scaleRange= round(rect(3)*(1-scalaLength)):round(rect(3)*scalaLength);
+    
+    % Shift the range of scale so it is symmetrical around zero
+    scaleRangeShifted = round((scaleRange)-mean(scaleRange));
+    
+    % Shift the x value according to the new scale
+    position= round((x)-mean(scaleRange));
+    
+    % Converts the value to percentage (scale from -100 to 100)
+    position= (position/max(scaleRangeShifted))*100;
+    
+    %Converts to a scale from 0 to 100
+    position= round(position/2)+50;
     
     % Setup the text type for the window
     Screen('TextFont', window, 'Arial');
@@ -122,22 +138,6 @@ for WhichIterationNumber = 1:NumberItems
         %Wait
         WaitSecs(1)
     end
-    
-    % Calculates the range of the scale
-    scaleRange= round(rect(3)*(1-scalaLength)):round(rect(3)*scalaLength);
-    
-    % Shift the range of scale so it is symmetrical around zero
-    scaleRangeShifted = round((scaleRange)-mean(scaleRange));
-    
-    % Shift the x value according to the new scale
-    position= round((x)-mean(scaleRange));
-    
-    % Converts the value to percentage (scale from -100 to 100)
-    position= (position/max(scaleRangeShifted))*100;
-    
-    %Converts to a scale from 0 to 100
-    position= round(position/2)+50;
-    
     
     %Enter the answer in the scale, the reaction time and if the
     %participant answered into the variable

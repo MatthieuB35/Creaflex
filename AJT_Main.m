@@ -82,8 +82,15 @@ if TrainingNormal==1
     end
 end
 
+%Fixation across appear for 30s
+        AJTfct.FixationCross(18,NormalColor,window,screenXpixels, screenYpixels,xCenter, yCenter)
+        %2s before end, change of colour
+        AJTfct.FixationCross(2,wordColor,window,screenXpixels, screenYpixels,xCenter, yCenter)
+
+
+
 %Main task
-if strcmp(WhichTask,'fMRI')
+if strcmp(WhichTask,'fMRI') && WhichRun~=0
     AJTfct.Display_Instructions(InstructionScreensPart3,EncodingInstruction,NormalColor,path,screenXpixels,screenYpixels,InstructFontChg,window)
     for WhichBlock=1:(length(Run)-1)
         Block=importdata([path 'AJTlists/AJT_Block_' num2str(Run(WhichBlock+1)) '.mat']);
@@ -101,7 +108,7 @@ if strcmp(WhichTask,'fMRI')
         AJTfct.FixationCross(2,wordColor,window,screenXpixels, screenYpixels,xCenter, yCenter)
     end
     
-elseif strcmp(WhichTask,'PRISM') 
+elseif strcmp(WhichTask,'PRISM') && WhichRun~=0
     Break=str2double(OutputGUI.WhenPause);
     AJTfct.Display_Instructions(InstructionScreensPart3,EncodingInstruction,NormalColor,path,screenXpixels,screenYpixels,InstructFontChg,window)
     OutputTask=AJTfct.TaskAJT(5,WordList_AllTrial,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect,xCenter, yCenter,aborttime,Jittered,Break);
@@ -115,4 +122,5 @@ if Save==1
 end
 
 ListenChar(0)
+clearvars
 sca
