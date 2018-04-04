@@ -26,7 +26,7 @@ for InstructionNumber= 1:length(ListNumberInstructions)
     Screen('Flip', window);
     
     %Wait 0.5 seconds to ensure the slide don't skip.
-    WaitSecs(0.5)
+    WaitSecs(0.5);
     
     %Wait for the participant to press a button to continue
     KbWait;

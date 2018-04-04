@@ -9,5 +9,5 @@ Tout les mots présentés seront toujours des noms.
 \n curseur, utilisez le trackball. 
 \n Une fois la position souhaitez atteinte sur l’échelle, 
 \n validez-la en par un clic gauche avec le pouce.
-\n\n Appuyez sur Espace si vous avez compris jusque-là.
+\n\n Appuyez sur T si vous avez compris jusque-là.
 

@@ -7,7 +7,7 @@ Vous allez maintenant pouvoir vous entrainer pour vous
 \n le bouton de la souris. 
 \n Vous passerez alors automatiquement au chiffre suivant 
 \n et procéderez de meme.
-\n\n Appuyez sur Espace si vous avez compris.
+\n\n Appuyez sur T si vous avez compris.
 
 
 

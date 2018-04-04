@@ -4,5 +4,5 @@ Apres avoir cliqué,
 \n Vous ne pouvez pas valider votre réponse par un clic
 \n avant d’avoir bougé le curseur, meme si vous souhaitez 
 \n le positionner au milieu de l’échelle.
-\n\n Appuyez sur Espace pour commencer, si vous avez 
+\n\n Appuyez sur T pour commencer, si vous avez 
 \n bien compris les instructions.

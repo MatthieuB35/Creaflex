@@ -85,6 +85,8 @@ end
 %Main task
 if strcmp(WhichTask,'fMRI') && WhichRun~=0
     AJTfct.Display_Instructions(InstructionScreensPart3,EncodingInstruction,NormalColor,path,screenXpixels,screenYpixels,InstructFontChg,window)
+    StartSequence=GetSecs;
+    Output.StartSeq=StartSequence;
     %Fixation across appear for 30s
     AJTfct.FixationCross(8,NormalColor,window,screenXpixels, screenYpixels,xCenter, yCenter)
     %2s before end, change of colour

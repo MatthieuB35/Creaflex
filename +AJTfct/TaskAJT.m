@@ -15,7 +15,7 @@ else
     error('Problem in the arguments of the function')
 end
 
-AJTpar.Parameters
+AJTpar.Parameters;
 
 x=xCenter;
 
@@ -28,26 +28,26 @@ StartTrial=GetSecs;
 for WhichIteration = 1:NumberItems
     
     %Select a random number between 1 and 2.
-    LeftOrRight_rnd=unidrnd(2,1);
+    %LeftOrRight_rnd=unidrnd(2,1);
     
     %If the number is one, the first item will be on the left and the
     %second on the right.
     %If the number is two, it will be the opposite.
-    if LeftOrRight_rnd==1
+    %if LeftOrRight_rnd==1
         textString_Left_CurrIt = char(WordList_AllTrial{WhichIteration,1});
         textString_Right_CurrIt = char(WordList_AllTrial{WhichIteration,2});
         WhichItem={textString_Left_CurrIt; textString_Right_CurrIt};
-    else
-        textString_Left_CurrIt = char(WordList_AllTrial{WhichIteration,2});
-        textString_Right_CurrIt = char(WordList_AllTrial{WhichIteration,1});
-        WhichItem={textString_Left_CurrIt; textString_Right_CurrIt};
-    end
+%     else
+%         textString_Left_CurrIt = char(WordList_AllTrial{WhichIteration,2});
+%         textString_Right_CurrIt = char(WordList_AllTrial{WhichIteration,1});
+%         WhichItem={textString_Left_CurrIt; textString_Right_CurrIt};
+%     end
     
     %Display on screen the scale + the cues
     OnsetThink=AJTfct.Display_AJT(2,WhichItem,NormalColor,0,xCenter,sliderColorThink,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect);
     
     %Wait for X seconds, depending of the time need to think
-    WaitSecs(TimeToThink)
+    WaitSecs(TimeToThink);
     
     
     
@@ -62,7 +62,7 @@ for WhichIteration = 1:NumberItems
     %Set up the cheking of the movement of the cursor at 0
     Moved=0;
     %Set up the position of the mouse in the middle
-    SetMouse(xCenter,yCenter,window)
+    SetMouse(xCenter,yCenter,window);
     %Initialize the position of the cursor at 0.
     x=xCenter;
     %Initialize the speed of the mouse
@@ -103,7 +103,7 @@ for WhichIteration = 1:NumberItems
         end
         
         %Display on screen the scale + the cues + the slider
-        AJTfct.Display_AJT(2,WhichItem,NormalColor,1,x,sliderColorThink,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
+        AJTfct.Display_AJT(2,WhichItem,NormalColor,1,x,sliderColorThink,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect);
         
         % Check if answer has been given
         if strcmp(device, 'mouse') && Moved==1
@@ -134,23 +134,23 @@ for WhichIteration = 1:NumberItems
     RT= secs - t0;
     
     SelectionLeft=aborttime-RT;
-    WaitSecs(SelectionLeft)
+    WaitSecs(SelectionLeft);
     
     %If press Escape delete
     [KeyIsDown,~, keyCode] = KbCheck;
     if KeyIsDown && keyCode(EscKey)
-        AJTfct.PauseButton
+        AJTfct.PauseButton;
         %disp('User required break during block');
         %break
     end
     
     %Fill up screen in black while ITI
-    Screen('FillRect', window, [0 0 0])
+    Screen('FillRect', window, [0 0 0]);
     OnsetITI=Screen('Flip', window);
     
     %Wait for 1 seconds before the next trial
     JitteredITI=ITI(WhichIteration)*0.001;
-    WaitSecs(JitteredITI)
+    WaitSecs(JitteredITI);
     
     % Calculates the range of the scale
     scaleRange= round(rect(3)*(1-scalaLength)):round(rect(3)*scalaLength);
@@ -183,7 +183,7 @@ for WhichIteration = 1:NumberItems
     Answer_given_WordPair{WhichIteration,10}=answer;
     
     if DoBreak==1 && ismember(WhichIteration,WhenPause)
-        AJTfct.Break(window,NormalColor)
+        AJTfct.Break(window,NormalColor);
     end
     
     StartTrial=GetSecs;

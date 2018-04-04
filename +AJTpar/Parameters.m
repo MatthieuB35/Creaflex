@@ -18,23 +18,28 @@ NormalColor=[255 255 255];
 wordColor = [255 255 0]; %Color of the word when need to choose; Yellow
 device = 'mouse'; %Which device to use the scale. 
 
-fixCrossDim=0.1; %Size fixation Cross
-lineWidthPix=0.03; %Width fixation Cross
+fixCrossDim=0.09; %Size fixation Cross
+lineWidthPix=0.01; %Width fixation Cross
 
 TimeToThink=2; %Decide the number of seconds where participants have the time to think
 responseKey   = KbName('return'); %Return the keycode for the key 'return'
 startPosition = 'center'; %Select the start position of the cursor
-endPoints={'0 = Pas du tout Lié', '100= Complètement lié'}; %Which word there is at the end of the scale
-InstructionScreensPart1=[1;2]; %Instruction at the beginning
-InstructionScreensPart2=[3;4]; %Instruction after motor training and before normal training
-InstructionScreensPart3=5; %Instruction after normal training and experiment
+endPoints={'0 = Pas du tout Liï¿½', '100= Complï¿½tement liï¿½'}; %Which word there is at the end of the scale
+InstructionScreensPart1=[1;2;3]; %Instruction at the beginning
+InstructionScreensPart2=[4;5;6]; %Instruction after motor training and before normal training
+InstructionScreensPart3=7; %Instruction after normal training and experiment
 EncodingInstruction='UTF-8'; %Specify the encoding of the instruction file
 EncodingFile='Macintosh'; %Specify the encoding of the txt file
 leftKey = KbName('LeftArrow'); %GetName of left arrow in keyboard
 rightKey = KbName('RightArrow'); %GetName of right arrow in keyboard
-EscKey=KbName('ESCAPE');
+
 pixelsPerPress = 10; % Movement of pixel per change if keyboard
 PercentToMove=0.03; %Percent to move the cursor before can do something
+
+EscKey=KbName('ESCAPE');
+KeyT=KbName('t');
+
+Enablekeys = RestrictKeysForKbCheck([EscKey KeyT]);
 
 InstructFontChg=0.15; %Modify the font size of the instruction
 CuesFontChg=0.15; %Modify the font size of the cues

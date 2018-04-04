@@ -17,7 +17,7 @@ for WhichIterationNumber = 1:NumberItems
     NumberTemp=unidrnd(100,1);
     
     %Display on screen the scale + the cue
-    AJTfct.Display_AJT(1,NumberTemp,NormalColor,0,xCenter,sliderColorThink,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
+    AJTfct.Display_AJT(1,NumberTemp,NormalColor,0,xCenter,sliderColorThink,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect);
     
     %Wait for X seconds, depending of the time need to think
     WaitSecs(TimeToThink)
@@ -30,7 +30,7 @@ for WhichIterationNumber = 1:NumberItems
     answer= 0;
     
     %Set up the position of the mouse in the middle
-    SetMouse(xCenter,yCenter,window)
+    SetMouse(xCenter,yCenter,window);
     
     %Initialize the speed of the mouse
     x_prev = xCenter;
@@ -65,7 +65,7 @@ for WhichIterationNumber = 1:NumberItems
         end
         
         %Display on screen the scale + the cue + the slider
-        AJTfct.Display_AJT(1,NumberTemp,NormalColor,1,x,sliderColorThink,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
+        AJTfct.Display_AJT(1,NumberTemp,NormalColor,1,x,sliderColorThink,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect);
         
         % Check if answer has been given
         if strcmp(device, 'mouse')
@@ -90,12 +90,12 @@ for WhichIterationNumber = 1:NumberItems
     %Display in the command windows the different trials
     disp(['For iteration' num2str(WhichIterationNumber) 'answer=' num2str(answer)]);
     
-    AJTfct.Display_AJT(1,NumberTemp,NormalColor,1,x,sliderColorSelection,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
+    AJTfct.Display_AJT(1,NumberTemp,NormalColor,1,x,sliderColorSelection,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect);
     
     %Slider etc stay in screen for X time
     RT= secs - t0;
     SelectionLeft=aborttimeNumber-RT;
-    WaitSecs(SelectionLeft)
+    WaitSecs(SelectionLeft);
     
     %If press Escape delete
     [KeyIsDown,~, keyCode] = KbCheck;
@@ -130,13 +130,13 @@ for WhichIterationNumber = 1:NumberItems
         DrawFormattedText(window,['Position du curseur: ' num2str(position)],'center', 'center',NormalColor);
         Screen('Flip', window);
         %Wait
-        WaitSecs(1)
+        WaitSecs(1);
     else
         Screen('FillRect', window, [0 0 0])
         DrawFormattedText(window,'Trop tard!','center', 'center',NormalColor);
         Screen('Flip', window);
         %Wait
-        WaitSecs(1)
+        WaitSecs(1);
     end
     
     %Enter the answer in the scale, the reaction time and if the
@@ -145,11 +145,11 @@ for WhichIterationNumber = 1:NumberItems
     Answer_given_motor(WhichIterationNumber,2:4)=[position, RT, answer];
     
     %Fill up screen in black while ITI
-    Screen('FillRect', window, [0 0 0])
+    Screen('FillRect', window, [0 0 0]);
     Screen('Flip', window);
     
     %Wait for ITI
-    WaitSecs(0.5)
+    WaitSecs(0.5);
     
 end
 Output=Answer_given_motor;
