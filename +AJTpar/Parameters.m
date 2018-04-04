@@ -7,7 +7,7 @@ KbName('UnifyKeyNames') % cross compatibility
 path=[pwd '/'];
 lineLength    = 10; %Line length of the scale
 width         = 5; %Width fo the scale
-scalaLength   = 0.6; %Length of the marker in the scale
+scalaLength   = 0.7; %Length of the marker in the scale
 scalaPosition = 0.5; %Position of the marker in the scale
 sliderColorThink    = [255 0 0]; % color of the slider; Red
 sliderColorSelection    = [0 255 0]; % color of the slider; green
@@ -18,13 +18,13 @@ NormalColor=[255 255 255];
 wordColor = [255 255 0]; %Color of the word when need to choose; Yellow
 device = 'mouse'; %Which device to use the scale. 
 
-fixCrossDim=0.05; %Size fixation Cross
-lineWidthPix=0.01; %Width fixation Cross
+fixCrossDim=0.1; %Size fixation Cross
+lineWidthPix=0.03; %Width fixation Cross
 
 TimeToThink=2; %Decide the number of seconds where participants have the time to think
 responseKey   = KbName('return'); %Return the keycode for the key 'return'
 startPosition = 'center'; %Select the start position of the cursor
-endPoints={'0 = Pas du tout LiÃ©', '100= ComplÃ¨tement liÃ©'}; %Which word there is at the end of the scale
+endPoints={'0 = Pas du tout Lié', '100= Complètement lié'}; %Which word there is at the end of the scale
 InstructionScreensPart1=[1;2]; %Instruction at the beginning
 InstructionScreensPart2=[3;4]; %Instruction after motor training and before normal training
 InstructionScreensPart3=5; %Instruction after normal training and experiment
@@ -34,14 +34,15 @@ leftKey = KbName('LeftArrow'); %GetName of left arrow in keyboard
 rightKey = KbName('RightArrow'); %GetName of right arrow in keyboard
 EscKey=KbName('ESCAPE');
 pixelsPerPress = 10; % Movement of pixel per change if keyboard
-PercentToMove=0.05; %Percent to move the cursor before can do something
-InstructFontChg=0.07; %Modify the font size of the instruction
-CuesFontChg=0.09; %Modify the font size of the cues
-EndPointsFontChg=0.05; %Modify the font size of the end points
+PercentToMove=0.03; %Percent to move the cursor before can do something
+
+InstructFontChg=0.15; %Modify the font size of the instruction
+CuesFontChg=0.15; %Modify the font size of the cues
+EndPointsFontChg=0.07; %Modify the font size of the end points
 EndPointsPositionYChg=0.05; %Modify the Y position of the end points
 EndPointsPositionXChg=0.16; %Modify the X position of the end points
-CuesPositionYChg=0.75; %Modify the Y position of the cues
-MouseSpeedFactor = 1.5; %Define the parameter of the speed of the mouse 
+CuesPositionYChg=0.85; %Modify the Y position of the cues
+MouseSpeedFactor = 2.4; %Define the parameter of the speed of the mouse 
 
 if strcmp(device, 'mouse')
     responseKey   = 1; % X mouse button

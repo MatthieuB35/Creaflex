@@ -41,7 +41,7 @@ elseif strcmp(WhichScreen,'CENIRb')
     aborttimeNumber = 2; %Abort time for the motor training
 end
 
-HideCursor(OutputScreen)
+HideCursor(OutputScreen);
 
 load([path 'AJTlists/AJT_Block_Correspondance.mat'])
 clear NamesBlock seed
@@ -85,20 +85,31 @@ end
 %Main task
 if strcmp(WhichTask,'fMRI') && WhichRun~=0
     AJTfct.Display_Instructions(InstructionScreensPart3,EncodingInstruction,NormalColor,path,screenXpixels,screenYpixels,InstructFontChg,window)
-    for WhichBlock=1:(length(Run)-1)
-        Block=importdata([path 'AJTlists/AJT_Block_' num2str(Run(WhichBlock+1)) '.mat']);
+    %Fixation across appear for 30s
+    AJTfct.FixationCross(8,NormalColor,window,screenXpixels, screenYpixels,xCenter, yCenter)
+    %2s before end, change of colour
+    AJTfct.FixationCross(2,wordColor,window,screenXpixels, screenYpixels,xCenter, yCenter)
+    for WhichBlock=1:(length(Run))
+        Block=importdata([path 'AJTlists/AJT_Block_' num2str(Run(WhichBlock)) '.mat']);
         WordList_AllTrial=Block.Block;
         Jittered=Block.Jittered.ListITI;
         NbrTrial=length(WordList_AllTrial);
-        OutputTask=AJTfct.TaskAJT(NbrTrial,WordList_AllTrial,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect,xCenter, yCenter,aborttime,Jittered);
+        OutputTask=AJTfct.TaskAJT(25,WordList_AllTrial,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect,xCenter, yCenter,aborttime,Jittered);
         Output.(['TaskBlock' num2str(WhichBlock)])=OutputTask;
         if Save==1
             save(['AJT_Pilot_PN' PN '_Run' num2str(WhichRun)],'WhichSeq','Output')
         end
-        %Fixation across appear for 30s
-        AJTfct.FixationCross(28,NormalColor,window,screenXpixels, screenYpixels,xCenter, yCenter)
-        %2s before end, change of colour
-        AJTfct.FixationCross(2,wordColor,window,screenXpixels, screenYpixels,xCenter, yCenter)
+        if WhichBlock ~= length(Run)
+            %Fixation across appear for 30s
+            AJTfct.FixationCross(18,NormalColor,window,screenXpixels, screenYpixels,xCenter, yCenter)
+            %2s before end, change of colour
+            AJTfct.FixationCross(2,wordColor,window,screenXpixels, screenYpixels,xCenter, yCenter)
+        else
+            %Fixation across appear for 30s
+            AJTfct.FixationCross(8,NormalColor,window,screenXpixels, screenYpixels,xCenter, yCenter)
+            %2s before end, change of colour
+            AJTfct.FixationCross(2,wordColor,window,screenXpixels, screenYpixels,xCenter, yCenter)
+        end
     end
     
 elseif strcmp(WhichTask,'PRISM') && WhichRun~=0

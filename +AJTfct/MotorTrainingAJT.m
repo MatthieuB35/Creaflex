@@ -65,7 +65,7 @@ for WhichIterationNumber = 1:NumberItems
         end
         
         %Display on screen the scale + the cue + the slider
-        AJTfct.Display_AJT(1,NumberTemp,wordColor,1,x,sliderColorThink,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
+        AJTfct.Display_AJT(1,NumberTemp,NormalColor,1,x,sliderColorThink,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
         
         % Check if answer has been given
         if strcmp(device, 'mouse')
@@ -90,7 +90,7 @@ for WhichIterationNumber = 1:NumberItems
     %Display in the command windows the different trials
     disp(['For iteration' num2str(WhichIterationNumber) 'answer=' num2str(answer)]);
     
-    AJTfct.Display_AJT(1,NumberTemp,wordColor,1,x,sliderColorSelection,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
+    AJTfct.Display_AJT(1,NumberTemp,NormalColor,1,x,sliderColorSelection,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect)
     
     %Slider etc stay in screen for X time
     RT= secs - t0;

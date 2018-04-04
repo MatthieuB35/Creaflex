@@ -57,7 +57,7 @@ DrawFormattedText(window, endPoints{1}, leftTick(1, 1)-leftTick(1, 1)*EndPointsP
 DrawFormattedText(window, endPoints{2}, rightTick(1, 1)-leftTick(1, 1)*EndPointsPositionXChg,  rect(4)*scalaPosition+rect(4)*EndPointsPositionYChg,NormalColor); % Right point
 
 % Drawing the scala
-Screen('DrawLine', window, scaleColor, midTick(1), midTick(2), midTick(3), midTick(4), width);         % Mid tick
+%Screen('DrawLine', window, scaleColor, midTick(1), midTick(2), midTick(3), midTick(4), width);         % Mid tick
 Screen('DrawLine', window, scaleColor, leftTick(1), leftTick(2), leftTick(3), leftTick(4), width);     % Left tick
 Screen('DrawLine', window, scaleColor, rightTick(1), rightTick(2), rightTick(3), rightTick(4), width); % Right tick
 Screen('DrawLine', window, scaleColor, horzLine(1), horzLine(2), horzLine(3), horzLine(4), width);     % Horizontal line

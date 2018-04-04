@@ -4,7 +4,7 @@
 %PsychDefaultSetup(2);
 %Screen('Preference', 'SkipSyncTests', 0)
 
-PsychDebugWindowConfiguration
+%PsychDebugWindowConfiguration
 
 % Get the screen numbers. This gives us a number for each of the screens
 % attached to our computer.
