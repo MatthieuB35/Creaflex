@@ -1,7 +1,8 @@
 Vous allez maintenant pouvoir vous entrainer pour vous
-\n familiariser avec le trackball. Dans cet entrainement, vous allez
-\n voir un chiffre apparaitre et vous devrez placer le curseur sur la 
-\n position la plus proche de ce chiffre, sur l'échelle.
+\n familiariser avec le trackball. Dans cet entrainement, 
+\n vous allez voir un chiffre apparaitre et vous devrez 
+\n placer le curseur sur la position la plus proche de 
+\n ce chiffre, sur l'échelle.
 \n Pour validez votre position, vous devez cliquer sur 
 \n le bouton de la souris. 
 \n Vous passerez alors automatiquement au chiffre suivant 
