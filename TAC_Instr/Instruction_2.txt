@@ -1,7 +1,8 @@
-\n Vous disposez de 30 secondes pour trouver ce mot. Quand le fond d`écran 
-\n s`assombrit, il vous reste 2 secondes. Quand vous avez la réponse, 
-\n appuyez sur la touche Espace.
-\n Vous verrez ensuite, au milieu de l`écran, le mot `Réponse?` et vous devrez
-\n écrire votre réponse et appuyez sur Entrée.
-\n Vous aurez la possibilité de prendre une pause après 25 essais.
+\n Vous disposez de 30 secondes pour trouver ce mot. 
+\n Quand le fond d`écran s`assombrit, il vous reste 
+\n 2 secondes. Quand vous avez la réponse, appuyez sur 
+\n la touche Espace. Vous verrez ensuite, au milieu de 
+\n l`écran, le mot `Réponse?` et vous devrez écrire 
+\n votre réponse en majuscule et appuyez sur Entrée.
+\n Vous aurez la possibilité de prendre une pause après 20 essais.
 \n \n Appuyez sur Espace pour continuer.

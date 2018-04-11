@@ -1,3 +1,4 @@
-Pour répondre à la question Eureka ?, vous disposez de 5 secondes, 
-\n pour dire si OUI (appuyé sur la touche V) ou NON (appuyé sur la touche N).
+Pour répondre à la question Eureka ?, vous disposez de 
+\n 5 secondes, pour dire si OUI (appuyé sur la touche V) 
+\n ou NON (appuyé sur la touche N).
 \n \n Appuyez sur Espace pour continuer
