@@ -61,7 +61,7 @@ handles.output = hObject;
 guidata(hObject, handles);
 
 % UIWAIT makes GUI_AJT wait for user response (see UIRESUME)
-uiwait(handles.figure1);
+%uiwait(handles.figure1);
 
 
 % --- Outputs from this function are returned to the command line.
@@ -71,47 +71,9 @@ function varargout = GUI_AJT_OutputFcn(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-OutputGUI=struct;
-OutputGUI.ParticipantNumber=get(handles.edit3, 'String');
-
-%Screen
-TempScreenDisplayValue=get(handles.listbox1, 'Value');
-TempScreenDisplay=get(handles.listbox1, 'String');
-OutputGUI.ScreenDisplay=TempScreenDisplay(TempScreenDisplayValue);
-
-%Save
-TempSaveValueYes=get(handles.radiobutton1, 'Value');
-if TempSaveValueYes == 1
-    TempSave=1;
-else
-    TempSave=0;
-end
-OutputGUI.SaveData=TempSave;
-
-%Motor training
-OutputGUI.DoMotorTraining=get(handles.checkbox2, 'Value');
-OutputGUI.MotorTraining=get(handles.text11, 'String');
-
-%Normal training
-OutputGUI.DoNormalTraining=get(handles.checkbox3, 'Value');
-OutputGUI.NormalTraining=get(handles.text7, 'String');
-
-%Main Task
-if get(handles.radiobutton6,'value')==1
-    OutputGUI.WhichTask='fMRI';
-    OutputGUI.ScanSeq=get(handles.edit4, 'String');
-    OutputGUI.WhichRun=get(handles.edit5, 'String');
-else
-    OutputGUI.WhichTask='PRISM';
-    OutputGUI.WhenPause=get(handles.text15, 'String');
-end
-
-
-handles.OutputData=OutputGUI;
-
 % Get default command line output from handles structure
 %varargout{1} = handles.output;
-varargout{1} =handles.OutputData;
+%varargout{1} =handles.OutputData;
 % The figure can be deleted now
 %delete(handles.figure1);
 
@@ -315,7 +277,51 @@ function pushbutton2_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 % Hint: delete(hObject) %closes the figure
-uiresume(handles.figure1);
+%uiresume(handles.figure1);
+
+OutputGUI=struct;
+OutputGUI.ParticipantNumber=get(handles.edit3, 'String');
+
+%Screen
+TempScreenDisplayValue=get(handles.listbox1, 'Value');
+TempScreenDisplay=get(handles.listbox1, 'String');
+OutputGUI.ScreenDisplay=TempScreenDisplay(TempScreenDisplayValue);
+
+%Save
+TempSaveValueYes=get(handles.radiobutton1, 'Value');
+if TempSaveValueYes == 1
+    TempSave=1;
+else
+    TempSave=0;
+end
+OutputGUI.SaveData=TempSave;
+
+%Motor training
+OutputGUI.DoMotorTraining=get(handles.checkbox2, 'Value');
+OutputGUI.MotorTraining=get(handles.text11, 'String');
+
+%Normal training
+OutputGUI.DoNormalTraining=get(handles.checkbox3, 'Value');
+OutputGUI.NormalTraining=get(handles.text7, 'String');
+
+%Main Task
+if get(handles.radiobutton6,'value')==1
+    OutputGUI.WhichTask='fMRI';
+    %OutputGUI.ScanSeq=get(handles.edit4, 'String');
+    OutputGUI.WhichRun=get(handles.edit5, 'String');
+else
+    OutputGUI.WhichRun='0';
+    OutputGUI.WhichTask='PRISME';
+    OutputGUI.HowManyRun=get(handles.text15, 'String');
+end
+
+
+handles.OutputData=OutputGUI;
+
+save('TempOutputGUI.mat','OutputGUI')
+evalin('base', 'AJT_Main')
+%AJT_Main;
+
 
 
 function figure1_CloseRequestFcn(hObject, eventdata, handles)
@@ -390,9 +396,9 @@ function radiobutton6_Callback(hObject, eventdata, handles)
 
 % Hint: get(hObject,'Value') returns toggle state of radiobutton6
 if get(hObject, 'Value')==1
-    set(handles.edit4, 'Visible', 'on');
+    %set(handles.edit4, 'Visible', 'on');
     set(handles.edit5, 'Visible', 'on');
-    set(handles.text12,'Visible', 'on');
+    %set(handles.text12,'Visible', 'on');
     set(handles.text13,'Visible', 'on');
     
     set(handles.slider6,'Visible', 'off');
@@ -409,9 +415,9 @@ function radiobutton7_Callback(hObject, eventdata, handles)
 
 % Hint: get(hObject,'Value') returns toggle state of radiobutton7
 if get(hObject, 'Value')==1
-    set(handles.edit4, 'Visible', 'off');
+    %set(handles.edit4, 'Visible', 'off');
     set(handles.edit5, 'Visible', 'off');
-    set(handles.text12,'Visible', 'off');
+    %set(handles.text12,'Visible', 'off');
     set(handles.text13,'Visible', 'off');
     
     set(handles.slider6,'Visible', 'on');

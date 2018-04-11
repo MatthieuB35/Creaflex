@@ -173,18 +173,19 @@ for WhichIteration = 1:NumberItems
     %participant answered into the variable
     Answer_given_WordPair{WhichIteration,1}=textString_Left_CurrIt;
     Answer_given_WordPair{WhichIteration,2}=textString_Right_CurrIt;
-    Answer_given_WordPair{WhichIteration,3}=position;
-    Answer_given_WordPair{WhichIteration,4}=OnsetThink-StartTrial;
-    Answer_given_WordPair{WhichIteration,5}=TimeStampThink;
-    Answer_given_WordPair{WhichIteration,6}=RT;
-    Answer_given_WordPair{WhichIteration,7}=OnsetITI-OnsetResponse;
-    Answer_given_WordPair{WhichIteration,8}=JitteredITI;
-    Answer_given_WordPair{WhichIteration,9}=EndTrial-OnsetITI;
-    Answer_given_WordPair{WhichIteration,10}=answer;
+    Answer_given_WordPair{WhichIteration,3}=WordList_AllTrial{WhichIteration,3};
+    Answer_given_WordPair{WhichIteration,4}=position;
+    Answer_given_WordPair{WhichIteration,5}=OnsetThink-StartTrial;
+    Answer_given_WordPair{WhichIteration,6}=TimeStampThink;
+    Answer_given_WordPair{WhichIteration,7}=RT;
+    Answer_given_WordPair{WhichIteration,8}=OnsetITI-OnsetResponse;
+    Answer_given_WordPair{WhichIteration,9}=JitteredITI;
+    Answer_given_WordPair{WhichIteration,10}=EndTrial-OnsetITI;
+    Answer_given_WordPair{WhichIteration,11}=answer;
     
-    if DoBreak==1 && ismember(WhichIteration,WhenPause)
-        AJTfct.Break(window,NormalColor);
-    end
+%     if DoBreak==1 && ismember(WhichIteration,WhenPause)
+%         AJTfct.Break(window,NormalColor);
+%     end
     
     StartTrial=GetSecs;
 end

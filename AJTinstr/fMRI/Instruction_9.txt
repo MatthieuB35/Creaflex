@@ -1,0 +1,7 @@
+Après plusieurs essais, une croix apparaîtra 
+\n au milieu de l`écran. A ce moment, vous
+\n devrez la fixer jusqu'à ce qu`elle disparaisse.
+\n 2 secondes avant de reprendre le test, la croix
+\n deviendra jaune.
+\n\n Appuyez sur Espace si vous avez compris jusque-là.
+

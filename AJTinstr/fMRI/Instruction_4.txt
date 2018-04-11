@@ -1,0 +1,12 @@
+Apres avoir cliqué, l`essai suivant s`affichera 
+\n automatiquement. Répondez le plus vite possible.
+\n Vous ne pouvez pas valider votre réponse par 
+\n un clic avant d’avoir bougé le curseur, 
+\n même si vous souhaitez le positionner au milieu 
+\n de l`échelle.
+\n\n Appuyez sur Espace pour commencer, si vous avez 
+\n bien compris les instructions.
+
+
+
+

@@ -2,9 +2,14 @@ function OnsetDisplay=Display_AJT(HowManyCues,WhichItem,WhichColorCues,IsSlider,
 
 AJTpar.Parameters
 
+%Modify screen size
+ModifyResolution=(screenYpixels/screenXpixels)+1;
+
 %Modification of the fontsize of the instruction,cues and endpoints
-SizeFontModifyCues=round((screenXpixels-screenYpixels)*CuesFontChg);
-SizeFontModifyEndPoints=round((screenXpixels-screenYpixels)*EndPointsFontChg);
+%SizeFontModifyCues=round((screenXpixels-screenYpixels)*CuesFontChg*ModifyResolution);
+SizeFontModifyCues=round(CuesFontChg*ModifyResolution);
+SizeFontModifyEndPoints=round(EndPointsFontChg*ModifyResolution);
+%SizeFontModifyEndPoints=round((screenXpixels-screenYpixels)*EndPointsFontChg*ModifyResolution);
 
 %Define the left and right position of the cues
 LeftScreenPosition=rect(3)*0.4;

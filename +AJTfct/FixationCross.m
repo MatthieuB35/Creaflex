@@ -25,7 +25,7 @@ Screen('DrawLine', window,ColourCross, allCoords(2,1), allCoords(2,2), allCoords
 Screen('Flip', window);
 
 %Wait 0.5 seconds to ensure the slide don't skip.
-WaitSecs(0.5)
+WaitSecs(0.5);
 
 tStart = GetSecs;
 timedout = false;
@@ -35,7 +35,7 @@ while ~timedout
     if (keyIsDown)
         %disp('User required break during fixation');
         %break;
-       AJTfct.PauseButton
+       AJTfct.PauseButton;
     end
     if ((keyTime - tStart) > (HowLong-0.5))
         timedout = true;

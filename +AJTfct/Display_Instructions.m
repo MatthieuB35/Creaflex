@@ -1,7 +1,10 @@
-function Display_Instructions(ListNumberInstructions,EncodingInstruction,WhichColor,path,screenXpixels,screenYpixels,InstructFontChg,window)
+function Display_Instructions(ListNumberInstructions,EncodingInstruction,WhichType,WhichColor,path,screenXpixels,screenYpixels,InstructFontChg,window)
 
+%Modify screen size
+ModifyResolution=(screenYpixels/screenXpixels)+1;
 
-SizeFontModifyInstruct=round((screenXpixels-screenYpixels)*InstructFontChg);
+%SizeFontModifyInstruct=round((screenXpixels-screenYpixels)*InstructFontChg*ModifyResolution);
+SizeFontModifyInstruct=round(ModifyResolution*InstructFontChg);
 
 %%First part of the instructions
 for InstructionNumber= 1:length(ListNumberInstructions)
@@ -11,7 +14,7 @@ for InstructionNumber= 1:length(ListNumberInstructions)
     Screen('TextSize', window, SizeFontModifyInstruct);
     
     %Import the data for the instruction
-    TempInstructionFile = fopen([path 'AJTinstr/Instruction_' num2str(ListNumberInstructions(InstructionNumber)) '.txt'],'r+','n',EncodingInstruction);
+    TempInstructionFile = fopen([path 'AJTinstr/' WhichType '/Instruction_' num2str(ListNumberInstructions(InstructionNumber)) '.txt'],'r+','n',EncodingInstruction);
     
     %Scan all the lines of the instructions and put it in a variable
     TempInstruction = textscan(TempInstructionFile,'%s','delimiter','\n');

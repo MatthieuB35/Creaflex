@@ -4,8 +4,9 @@ AJTpar.Parameters
 
 x=xCenter;
 
-% %Modification of the fontsize of the instruction,cues and endpoints
-SizeFontModifyCues=round((screenXpixels-screenYpixels)*CuesFontChg);
+%Modify screen size
+ModifyResolution=(screenYpixels/screenXpixels)+1;
+SizeFontModifyCues=round(CuesFontChg*ModifyResolution);%round((screenXpixels-screenYpixels)*CuesFontChg);
 
 SetMouse(round(x), round(rect(4)*scalaPosition));
 
@@ -126,13 +127,13 @@ for WhichIterationNumber = 1:NumberItems
     
     if answer==1
         %Give an output of the position of the cursor
-        Screen('FillRect', window, [0 0 0])
+        Screen('FillRect', window, [0 0 0]);
         DrawFormattedText(window,['Position du curseur: ' num2str(position)],'center', 'center',NormalColor);
         Screen('Flip', window);
         %Wait
         WaitSecs(1);
     else
-        Screen('FillRect', window, [0 0 0])
+        Screen('FillRect', window, [0 0 0]);
         DrawFormattedText(window,'Trop tard!','center', 'center',NormalColor);
         Screen('Flip', window);
         %Wait

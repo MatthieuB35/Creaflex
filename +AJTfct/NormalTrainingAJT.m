@@ -11,20 +11,20 @@ Answer_given_training=NaN(NumberItems,3);
 for WhichIterationTraining = 1:NumberItems
     
     %Select a random number between 1 and 2.
-    LeftOrRight_rnd=unidrnd(2,1);
+    %LeftOrRight_rnd=unidrnd(2,1);
     
     %If the number is one, the first item will be on the left and the
     %second on the right.
     %If the number is two, it will be the opposite.
-    if LeftOrRight_rnd==1
+    %if LeftOrRight_rnd==1
         textString_Left_CurrIt = char(WordList_Training{WhichIterationTraining,1});
         textString_Right_CurrIt = char(WordList_Training{WhichIterationTraining,2});
         WhichItem={textString_Left_CurrIt; textString_Right_CurrIt};
-    else
-        textString_Left_CurrIt = char(WordList_Training{WhichIterationTraining,2});
-        textString_Right_CurrIt = char(WordList_Training{WhichIterationTraining,1});
-        WhichItem={textString_Left_CurrIt; textString_Right_CurrIt};
-    end
+%     %else
+%         textString_Left_CurrIt = char(WordList_Training{WhichIterationTraining,2});
+%         textString_Right_CurrIt = char(WordList_Training{WhichIterationTraining,1});
+%         WhichItem={textString_Left_CurrIt; textString_Right_CurrIt};
+%     end
     
     
     %Display on screen the scale + the cues

@@ -1,0 +1,5 @@
+Vous allez maintenant commencer la vraie tâche. 
+\n Vous allez voir, pendant 1 seconde, chaque
+\n nom qui sera présent dans la tâche.
+\n\n Appuyez sur Espace pour commencer.
+

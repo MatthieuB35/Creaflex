@@ -24,26 +24,35 @@ lineWidthPix=0.01; %Width fixation Cross
 TimeToThink=2; %Decide the number of seconds where participants have the time to think
 responseKey   = KbName('return'); %Return the keycode for the key 'return'
 startPosition = 'center'; %Select the start position of the cursor
-endPoints={'0 = Pas du tout Lié', '100= Complètement lié'}; %Which word there is at the end of the scale
-InstructionScreensPart1=[1;2;3]; %Instruction at the beginning
-InstructionScreensPart2=[4;5;6]; %Instruction after motor training and before normal training
-InstructionScreensPart3=7; %Instruction after normal training and experiment
+endPoints={'0 = Pas du tout Lie', '100= Completement lie'}; %Which word there is at the end of the scale
+
+
+
+InstructionScreensPart1=[1;2;3;4]; %Instruction at the beginning
+InstructionScreensPart2=[5;6;7;8;9;10]; %Instruction after motor training and before normal training
+InstructionScreensPart3=11; %Instruction after normal training and experiment
+InstructionScreensPart4=[12;13;14]; %Instruction after normal training and experiment
+
+
+
 EncodingInstruction='UTF-8'; %Specify the encoding of the instruction file
 EncodingFile='Macintosh'; %Specify the encoding of the txt file
 leftKey = KbName('LeftArrow'); %GetName of left arrow in keyboard
 rightKey = KbName('RightArrow'); %GetName of right arrow in keyboard
 
 pixelsPerPress = 10; % Movement of pixel per change if keyboard
-PercentToMove=0.03; %Percent to move the cursor before can do something
+PercentToMove=0.01; %Percent to move the cursor before can do something
 
 EscKey=KbName('ESCAPE');
+SpaceKey=KbName('SPACE');
 KeyT=KbName('t');
+KeyTTL=KbName('5%');
 
-Enablekeys = RestrictKeysForKbCheck([EscKey KeyT]);
+Enablekeys = RestrictKeysForKbCheck([EscKey SpaceKey KeyT KeyTTL]);
 
-InstructFontChg=0.15; %Modify the font size of the instruction
-CuesFontChg=0.15; %Modify the font size of the cues
-EndPointsFontChg=0.07; %Modify the font size of the end points
+InstructFontChg=35; %Modify the font size of the instruction; 0.15/0.08
+CuesFontChg=40; %Modify the font size of the cues 0.15/0.08
+EndPointsFontChg=25; %Modify the font size of the end points 0.07/0.04
 EndPointsPositionYChg=0.05; %Modify the Y position of the end points
 EndPointsPositionXChg=0.16; %Modify the X position of the end points
 CuesPositionYChg=0.85; %Modify the Y position of the cues
@@ -63,3 +72,7 @@ end
 
 
 WhenCrossTraining=[4,8,12];
+
+
+
+

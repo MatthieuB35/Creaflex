@@ -4,7 +4,7 @@
 %PsychDefaultSetup(2);
 %Screen('Preference', 'SkipSyncTests', 0)
 
-%PsychDebugWindowConfiguration
+Screen('Preference', 'SkipSyncTests', 2);
 
 % Get the screen numbers. This gives us a number for each of the screens
 % attached to our computer.
@@ -29,6 +29,7 @@ black = BlackIndex(screenNumber);
 
 % Query the frame duration
 ifi = Screen('GetFlipInterval', window);
+
 
 % Get the center coordinate of the window
 % Get the center coordinate of the window
