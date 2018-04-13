@@ -3,6 +3,8 @@ path=pwd;
 
 KbName('UnifyKeyNames');
 
+NumberItems=40;
+
 %Define the parameters used in the task
 EncodingCSV='UTF-8'; %Specify the encoding of the csv file
 EncodingTxT='Macintosh';%Specify the encoding of the txt file
@@ -15,9 +17,13 @@ WhenPause=20;%Decide the number of trial before to pause, if not integer, round 
 NumberTraining=10; %Define the number of training items (max10)
 StartAnswer=5; %Define the columns where the first "answer" is store
 EndAnswer=28; %Define the columns where the last "answer" is store
-FontSizeInstruct=50; %Define the size of the font for the instructions
+WhereAnswer=32; %Define the columns where answer from participant is store
+WhereScore=38; %Define the columns where answer from participant is store
+WhereEureka=35; %Define the columns where answer from participant is store
+
+FontSizeInstruct=45; %Define the size of the font for the instructions
 FontSizeTrial=60; %Define the size of the font for the cues words in the trials
-FontSizeEureka=50; %Define the size of the font for the cues words in the trials
+FontSizeEureka=45; %Define the size of the font for the cues words in the trials
 NormalColor=[255 255 255];
 
 BackgroundBlack= [0 0 0];
