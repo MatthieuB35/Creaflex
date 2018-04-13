@@ -1,4 +1,4 @@
-function FixationCross(HowLong,ColourCross,window,screenXpixels, screenYpixels,xCenter, yCenter)
+function Output=FixationCross(HowLong,ColourCross,window,screenXpixels, screenYpixels,xCenter, yCenter)
 
 AJTpar.Parameters;
 
@@ -22,7 +22,7 @@ Screen('DrawLine', window,ColourCross, allCoords(1,1), allCoords(1,2), allCoords
 Screen('DrawLine', window,ColourCross, allCoords(2,1), allCoords(2,2), allCoords(2,3), allCoords(2,4),WidthCrossModif);
 
 %Flip Screen
-Screen('Flip', window);
+Output=Screen('Flip', window);
 
 %Wait 0.5 seconds to ensure the slide don't skip.
 WaitSecs(0.5);

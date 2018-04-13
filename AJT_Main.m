@@ -71,7 +71,7 @@ if TrainingMotor==1
     OutputMotorTraining=AJTfct.MotorTrainingAJT(NumberTrainingMotor,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect,xCenter, yCenter,aborttimeNumber);
     Output.MotorTraining=OutputMotorTraining;
     if Save==1
-        save([DateString '_AJT_Pilot_PN' PN '_Run' num2str(WhichRun)],'Output','OutputGUI')
+        save([DateString '_AJT_PN' PN '_Run' num2str(WhichRun)],'Output','OutputGUI')
     end
 end
 
@@ -85,7 +85,7 @@ if TrainingNormal==1
     OutputNormalTraining=AJTfct.NormalTrainingAJT(NumberTrainingNormal,WordList_Training,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect,xCenter, yCenter,aborttime);
     Output.NormalTraining=OutputNormalTraining;
     if Save==1
-        save([DateString '_AJT_Pilot_PN' PN '_Run' num2str(WhichRun)],'Output','OutputGUI')
+        save([DateString '_AJT_PN' PN '_Run' num2str(WhichRun)],'Output','OutputGUI')
     end
 end
 
@@ -97,9 +97,13 @@ if strcmp(WhichTask,'fMRI') && WhichRun~=0 %Run by run
     StartSequence=GetSecs;
     Output.StartSeq=StartSequence;
     %Fixation across appear for 30s
-    AJTfct.FixationCross(8,NormalColor,window,screenXpixels, screenYpixels,xCenter, yCenter)
+    AJTfct.FixationCross(8,NormalColor,window,screenXpixels, screenYpixels,xCenter, yCenter);
     %2s before end, change of colour
-    AJTfct.FixationCross(2,wordColor,window,screenXpixels, screenYpixels,xCenter, yCenter)
+    AJTfct.FixationCross(2,wordColor,window,screenXpixels, screenYpixels,xCenter, yCenter);
+    
+    %Calculate time after cross
+    EndFirstCross=GetSecs;
+    Output.FirstCross=EndFirstCross-StartSequence;
     
     for WhichBlock=1:(length(Run))
         Block=importdata([path 'AJTlists/AJT_Block_' num2str(Run(WhichBlock)) '.mat']);
@@ -109,19 +113,23 @@ if strcmp(WhichTask,'fMRI') && WhichRun~=0 %Run by run
         OutputTask=AJTfct.TaskAJT(NbrTrial,WordList_AllTrial,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect,xCenter, yCenter,aborttime,Jittered);
         Output.(['TaskBlock' num2str(WhichBlock)])=OutputTask;
         if Save==1
-            save([DateString '_AJT_Pilot_PN' PN '_Run' num2str(WhichRun)],'Output')
+            save([DateString '_AJT_PN' PN '_Run' num2str(WhichRun)],'Output')
         end
+        
+        XStartCross=GetSecs;
         if WhichBlock ~= length(Run)
             %Fixation across appear for 30s
-            AJTfct.FixationCross(18,NormalColor,window,screenXpixels, screenYpixels,xCenter, yCenter)
+            AJTfct.FixationCross(18,NormalColor,window,screenXpixels, screenYpixels,xCenter, yCenter);
             %2s before end, change of colour
-            AJTfct.FixationCross(2,wordColor,window,screenXpixels, screenYpixels,xCenter, yCenter)
+            AJTfct.FixationCross(2,wordColor,window,screenXpixels, screenYpixels,xCenter, yCenter);
         else
             %Fixation across appear for 30s
-            AJTfct.FixationCross(8,NormalColor,window,screenXpixels, screenYpixels,xCenter, yCenter)
+            AJTfct.FixationCross(8,NormalColor,window,screenXpixels, screenYpixels,xCenter, yCenter);
             %2s before end, change of colour
-            AJTfct.FixationCross(2,wordColor,window,screenXpixels, screenYpixels,xCenter, yCenter)
+            AJTfct.FixationCross(2,wordColor,window,screenXpixels, screenYpixels,xCenter, yCenter);
         end
+        XEndCross=GetSecs;
+        Output.(['Cross_Number' num2str(WhichBlock)])=XEndCross-XStartCross;
     end
     EndSequence=GetSecs;
     AllSequence=EndSequence-StartSequence;
@@ -130,28 +138,27 @@ if strcmp(WhichTask,'fMRI') && WhichRun~=0 %Run by run
     
     %Save
     if Save==1
-        save([DateString '_AJT_Pilot_PN' PN '_Run' num2str(WhichRun)],'Output','OutputGUI')
+        save([DateString '_AJT_PN' PN '_Run' num2str(WhichRun)],'Output','OutputGUI')
     end
  
 
 elseif strcmp(WhichTask,'PRISME') %All run at once
-    %Break=str2double(OutputGUI.WhenPause);
     HowManyRun=str2double(OutputGUI.HowManyRun);
-    %AJTfct.Display_Instructions(InstructionScreensPart3,EncodingInstruction,NormalColor,path,screenXpixels,screenYpixels,InstructFontChg,window)
-    %OutputTask=AJTfct.TaskAJT(5,WordList_AllTrial,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect,xCenter, yCenter,aborttime,Jittered,Break);
-    %Output.Task=OutputTask;
     
+    %Instruction display words
     AJTfct.Display_Instructions(InstructionScreensPart3,EncodingInstruction,WhichTask,NormalColor,path,screenXpixels,screenYpixels,InstructFontChg,window)
     AJTfct.PresentationAllWords(UniqueWords,1,0.3,window,screenXpixels,screenYpixels)
+    %Instructions before task
     AJTfct.Display_Instructions(InstructionScreensPart4,EncodingInstruction,WhichTask,NormalColor,path,screenXpixels,screenYpixels,InstructFontChg,window)
+    
     for CurrentRun = 1:HowManyRun
         Run=RunList(CurrentRun,:);
         StartSequence=GetSecs;
         Output.StartSeq=StartSequence;
         %Fixation across appear for 8+2s
-        AJTfct.FixationCross(8,NormalColor,window,screenXpixels, screenYpixels,xCenter, yCenter)
+        AJTfct.FixationCross(8,NormalColor,window,screenXpixels, screenYpixels,xCenter, yCenter);
         %2s before end, change of colour
-        AJTfct.FixationCross(2,wordColor,window,screenXpixels, screenYpixels,xCenter, yCenter)
+        AJTfct.FixationCross(2,wordColor,window,screenXpixels, screenYpixels,xCenter, yCenter);
         for WhichBlock=1:(length(Run))
             Block=importdata([path 'AJTlists/AJT_Block_' num2str(Run(WhichBlock)) '.mat']);
             WordList_AllTrial=Block.Block;
@@ -161,7 +168,7 @@ elseif strcmp(WhichTask,'PRISME') %All run at once
             OutputTask=AJTfct.TaskAJT(NbrTrial,WordList_AllTrial,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect,xCenter, yCenter,aborttime,Jittered);
             Output.(['TaskBlock' num2str(WhichBlock)])=OutputTask;
             if Save==1
-                save([DateString '_AJT_Pilot_PN' PN '_Run' num2str(CurrentRun)],'Output','OutputGUI');
+                save([DateString '_AJT_PN' PN '_Run' num2str(CurrentRun)],'Output','OutputGUI');
             end
             if WhichBlock ~= length(Run)
                 %Fixation across appear for 18+2s
@@ -182,7 +189,7 @@ elseif strcmp(WhichTask,'PRISME') %All run at once
         
         %Save
         if Save==1
-            save([DateString '_AJT_Pilot_PN' PN '_Run' num2str(CurrentRun)],'Output','OutputGUI');
+            save([DateString '_AJT_PN' PN '_Run' num2str(CurrentRun)],'Output','OutputGUI');
         end
         
         if CurrentRun~=HowManyRun
