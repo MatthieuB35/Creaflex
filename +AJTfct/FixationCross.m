@@ -35,7 +35,7 @@ while ~timedout
     if (keyIsDown)
         %disp('User required break during fixation');
         %break;
-       AJTfct.PauseButton;
+       AJTfct.PauseButton(PauseScreen);
     end
     if ((keyTime - tStart) > (HowLong-0.5))
         timedout = true;

@@ -32,7 +32,7 @@ InstructionScreensPart1=[1;2;3;4]; %Instruction at the beginning
 InstructionScreensPart2=[5;6;7;8;9;10]; %Instruction after motor training and before normal training
 InstructionScreensPart3=11; %Instruction after normal training and experiment
 InstructionScreensPart4=[12;13;14]; %Instruction after normal training and experiment
-
+InstructionScreensPart5=15;
 
 
 EncodingInstruction='UTF-8'; %Specify the encoding of the instruction file
@@ -48,7 +48,9 @@ SpaceKey=KbName('SPACE');
 KeyT=KbName('t');
 KeyTTL=KbName('5%');
 
-Enablekeys = RestrictKeysForKbCheck([EscKey SpaceKey KeyT KeyTTL]);
+Enablekeys = RestrictKeysForKbCheck([EscKey SpaceKey]);
+
+TTLSreen=InstructionScreensPart5;
 
 InstructFontChg=35; %Modify the font size of the instruction; 0.15/0.08
 CuesFontChg=40; %Modify the font size of the cues 0.15/0.08
@@ -60,8 +62,9 @@ MouseSpeedFactor = 2.4; %Define the parameter of the speed of the mouse
 
 if strcmp(device, 'mouse')
     responseKey   = 1; % X mouse button
+    responseKeySecond=2;
 elseif strcmp(device, 'keyboard')
-    responseKey   = 88; % Enter on the keyboard
+    responseKey   = KbName('ENTER'); % Enter on the keyboard
 end
 
 if IsWindows || IsOSX
@@ -74,5 +77,7 @@ end
 WhenCrossTraining=[4,8,12];
 
 
+PauseScreen=1;
 
 
+PNType='C17-61_0_';

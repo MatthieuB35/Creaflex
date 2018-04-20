@@ -1,7 +1,7 @@
-function PauseButton
+function PauseButton(ScreenOutput)
 
 MP = get(0, 'MonitorPositions');
-pos= MP(2,:);
+pos= MP(ScreenOutput,:);
 f = warndlg('You need to close the window to continue.','Pause program');
 disp('User required break during fixation');
 ShowCursor;

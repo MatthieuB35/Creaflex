@@ -22,7 +22,7 @@ function varargout = GUI_AJT(varargin)
 
 % Edit the above text to modify the response to help GUI_AJT
 
-% Last Modified by GUIDE v2.5 30-Mar-2018 11:29:27
+% Last Modified by GUIDE v2.5 19-Apr-2018 12:37:18
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -281,6 +281,7 @@ function pushbutton2_Callback(hObject, eventdata, handles)
 
 OutputGUI=struct;
 OutputGUI.ParticipantNumber=get(handles.edit3, 'String');
+OutputGUI.Initials=get(handles.edit8, 'String');
 
 %Screen
 TempScreenDisplayValue=get(handles.listbox1, 'Value');
@@ -303,6 +304,9 @@ OutputGUI.MotorTraining=get(handles.text11, 'String');
 %Normal training
 OutputGUI.DoNormalTraining=get(handles.checkbox3, 'Value');
 OutputGUI.NormalTraining=get(handles.text7, 'String');
+
+OutputGUI.Presentation=get(handles.checkbox5, 'Value');
+
 
 %Main Task
 if get(handles.radiobutton6,'value')==1
@@ -448,3 +452,35 @@ function slider6_CreateFcn(hObject, eventdata, handles)
 if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor',[.9 .9 .9]);
 end
+
+
+
+function edit8_Callback(hObject, eventdata, handles)
+% hObject    handle to edit8 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit8 as text
+%        str2double(get(hObject,'String')) returns contents of edit8 as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function edit8_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit8 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on button press in checkbox5.
+function checkbox5_Callback(hObject, eventdata, handles)
+% hObject    handle to checkbox5 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of checkbox5

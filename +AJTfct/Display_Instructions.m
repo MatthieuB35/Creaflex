@@ -1,5 +1,11 @@
 function Display_Instructions(ListNumberInstructions,EncodingInstruction,WhichType,WhichColor,path,screenXpixels,screenYpixels,InstructFontChg,window)
 
+AJTpar.Parameters;
+
+if ListNumberInstructions==TTLSreen
+    RestrictKeysForKbCheck(KeyTTL);
+end
+
 %Modify screen size
 ModifyResolution=(screenYpixels/screenXpixels)+1;
 
@@ -34,6 +40,10 @@ for InstructionNumber= 1:length(ListNumberInstructions)
     %Wait for the participant to press a button to continue
     KbWait;
     
+end
+
+if ListNumberInstructions==TTLSreen
+    RestrictKeysForKbCheck([]);
 end
 
 end

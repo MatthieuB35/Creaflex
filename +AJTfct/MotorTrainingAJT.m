@@ -21,7 +21,7 @@ for WhichIterationNumber = 1:NumberItems
     AJTfct.Display_AJT(1,NumberTemp,NormalColor,0,xCenter,sliderColorThink,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect);
     
     %Wait for X seconds, depending of the time need to think
-    WaitSecs(TimeToThink)
+    WaitSecs(TimeToThink);
     
     %Set up the timer
     t0= GetSecs;

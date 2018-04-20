@@ -139,7 +139,7 @@ for WhichIteration = 1:NumberItems
     %If press Escape delete
     [KeyIsDown,~, keyCode] = KbCheck;
     if KeyIsDown && keyCode(EscKey)
-        AJTfct.PauseButton;
+        AJTfct.PauseButton(PauseScreen);
         %disp('User required break during block');
         %break
     end

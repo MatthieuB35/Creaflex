@@ -3,7 +3,7 @@ Tout les mots présentés seront toujours des noms.
 \n quelques secondes. 
 \n Les 2 premières secondes, vous réfléchirez aux 
 \n liens entre les 2 mots sans pouvoir déplacer le 
-\n curseur, la souris n’est pas actif. 
+\n curseur, la souris n’est pas active. 
 \n\n Appuyez sur Espace si vous avez compris jusque-là.
 
 
