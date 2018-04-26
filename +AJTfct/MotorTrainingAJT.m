@@ -5,7 +5,9 @@ AJTpar.Parameters
 x=xCenter;
 
 %Modify screen size
-ModifyResolution=(screenYpixels/screenXpixels)+1;
+%ModifyResolution=(screenYpixels/screenXpixels)+1;
+ModifyResolution=(screenXpixels/screenYpixels);
+
 SizeFontModifyCues=round(CuesFontChg*ModifyResolution);%round((screenXpixels-screenYpixels)*CuesFontChg);
 
 SetMouse(round(x), round(rect(4)*scalaPosition));

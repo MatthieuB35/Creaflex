@@ -2,7 +2,7 @@ Vous allez maintenant commencer la vraie tâche.
 \n Vous allez voir chaque nom qui sera présent 
 \n dans la tâche. Vous pouvez passer au mot suivant
 \n en appuyant sur la flèche gauche si vous
-\n comprenez son sens. Sinon, demander à
-\n l`examinateur de vous dire sa signification.
+\n comprenez son sens. Sinon, appuyez sur la
+\n flèche droite.
 \n\n Appuyez sur Espace pour commencer.
 

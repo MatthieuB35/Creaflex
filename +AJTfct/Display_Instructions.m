@@ -7,7 +7,8 @@ if ListNumberInstructions==TTLSreen
 end
 
 %Modify screen size
-ModifyResolution=(screenYpixels/screenXpixels)+1;
+%ModifyResolution=(screenYpixels/screenXpixels)+1;
+ModifyResolution=(screenXpixels/screenYpixels);
 
 %SizeFontModifyInstruct=round((screenXpixels-screenYpixels)*InstructFontChg*ModifyResolution);
 SizeFontModifyInstruct=round(ModifyResolution*InstructFontChg);
