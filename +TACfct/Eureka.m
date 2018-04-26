@@ -4,6 +4,8 @@ Output=cell(3,1);
 
 TACpar.Parameters;
 
+RestrictKeysForKbCheck([VLetter, NLetter]);
+
 % Setup the text type for the training
 Screen('TextFont', window, 'Ariel');
 Screen('TextSize', window, FontSizeEureka);
@@ -55,5 +57,7 @@ end
 Output{1} = KbName(keyCode);
 Output{2}=(keyTime - TimeStart);
 Output{3}=GaveAnswer;
+
+RestrictKeysForKbCheck([]);
 
 end

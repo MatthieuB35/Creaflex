@@ -38,8 +38,13 @@ function reply=AskLimitTime(window,message,textColor,bgColor,replyFun,rectAlign1
 %               small fixes...
 
 dontClear = 1;
+KbName('UnifyKeyNames');
+
+Enter=13;%KbName('ENTER');
+Delete=8;%KbName('DELETE');
 
 RestrictKeysForKbCheck([]);
+
 
 if nargin < 2
     error('Ask: Must provide at least the first two arguments.');
@@ -131,93 +136,82 @@ if strcmp(replyFun,'GetChar')
             reply='NONE';
             return
         end
-    end
-    %if timedout== false
+    end %Before type something (if thing more than Limited time, return)
+    
     FlushEvents('keyDown');
-    %end
-    %keyTime = GetSecs;
-    i=1;
-    reply(i)=GetChar(0,1);  % get the 1st typed character (with no timing info. and ascii codes only)
+    i=1; %First element
+    reply(i)=TACfct.WaitForInputKeyboard(0,1,LimitTime,t0); % get the 1st typed character (with no timing info. and ascii codes only)
     [newX(i), newY(i)]=Screen(window,'DrawText',char(reply(i)),oldX,oldY,textColor); % put coverted ascii code letter on screen
     Screen('Flip', window, 0, dontClear);   % flip it to the screen
-    i=2;
-    reply(i)=GetChar(0,1);  % get the 2nd typed character (with no timing info. and ascii codes only)
-    while reply(i)==8 && ~timedout  % backspace/delete was typed
+    i=2; %Second element
+    reply(i)=TACfct.WaitForInputKeyboard(0,1,LimitTime,t0); % get the 2nd typed character (with no timing info. and ascii codes only)
+    while reply(i)==Delete && ~timedout  % backspace/delete was typed
         keyTimeFirst = GetSecs;
+        if ((keyTimeFirst - t0) >= LimitTime)
+            timedout = true;
+        end
         i=1;
         Screen('FillRect', window, bgColor);
         [oldX, oldY]=Screen(window,'DrawText',message,r(RectLeft),r(RectBottom),textColor); % redraw text with no response letters
         Screen('Flip', window, 0, dontClear);   % flip it to the screen
-        reply(i)=GetChar(0,1);  % get the next typed character (with no timing info. and ascii codes only)
-        if reply(i)~=8
+        reply(i)=TACfct.WaitForInputKeyboard(0,1,LimitTime,t0); % get the next typed character (with no timing info. and ascii codes only)
+        if reply(i)~=Delete
             [newX(i), newY(i)]=Screen(window,'DrawText',char(reply(i)),oldX,oldY,textColor);
             Screen('Flip', window, 0, dontClear);
             i=2;
-            reply(i)=GetChar(0,1);
-        end;
-        
-        if ((keyTimeFirst - t0) >= LimitTime)
-            timedout = true;
-            %return
+            reply(i)=TACfct.WaitForInputKeyboard(0,1,LimitTime,t0);
         end
-        
-    end;
-    
-    
-    
-    while ~eq(reply(i),10)  && ~eq(reply(i),13) && ~timedout  % until they hit RETURN
-        keyTimeThird = GetSecs;
+    end
+
+    while ~eq(reply(i),10)  && ~eq(reply(i),13)  && ~timedout  % until they hit RETURN  && ~eq(reply(i),13) reply(i)~=Enter  
+        keyTimeThird = GetSecs; %Check if didn't go over time
+        if ((keyTimeThird - t0) > LimitTime)
+            timedout = true;
+        end
         [newX(i), newY(i)]=Screen(window,'DrawText',char(reply(i)),newX(i-1),newY(i-1),textColor); % put coverted ascii code letter on screen
         Screen('Flip', window, 0, dontClear);   % flip it to the screen
         i=i+1;
-        reply(i)=GetChar(0,1);  % get the next character (with no timing info. and ascii codes only)
-        while reply(i)==8 && ~timedout % backspace/delete was typed
-            keyTimeSecond = GetSecs;
+        reply(i)=TACfct.WaitForInputKeyboard(0,1,LimitTime,t0); % get the next character (with no timing info. and ascii codes only)
+        while reply(i)==Delete && ~timedout % backspace/delete was typed
+            keyTimeSecond = GetSecs; %Check if didn't go over time
+            if ((keyTimeSecond - t0) > LimitTime)
+                timedout = true;
+            end
             i=i-1;
             if i<2  % can't backspace too far!
                 i=1;
                 Screen('FillRect', window, bgColor);
                 [oldX, oldY]=Screen(window,'DrawText',message,r(RectLeft),r(RectBottom),textColor);% redraw text with no response letters
                 Screen('Flip', window, 0, dontClear);   % flip it to the screen
-                reply(i)=GetChar(0,1);
-                if reply(i)~=8
+                reply(i)=TACfct.WaitForInputKeyboard(0,1,LimitTime,t0);
+                if reply(i)~=Delete
                     [newX(i), newY(i)]=Screen(window,'DrawText',char(reply(i)),oldX,oldY,textColor);
                     Screen('Flip', window, 0, dontClear);
                     i=2;
-                    reply(i)=GetChar(0,1);
-                end;
+                    reply(i)=TACfct.WaitForInputKeyboard(0,1,LimitTime,t0);
+                end
             elseif i>1
                 Screen('FillRect', window, bgColor);
                 [oldX, oldY]=Screen(window,'DrawText',message,r(RectLeft),r(RectBottom),textColor);
                 [newX(i-1), newY(i-1)]=Screen(window,'DrawText',char(reply(1:i-1)), oldX, oldY, textColor); % put old letters on screen
                 Screen('Flip', window, 0, dontClear);   % flip it to the screen
-                reply(i)=GetChar(0,1);  % get the next character (with no timing info. and ascii codes only)
-            end;
-            if ((keyTimeSecond - t0) > LimitTime)
-                timedout = true;
-                %return
+                reply(i)=TACfct.WaitForInputKeyboard(0,1,LimitTime,t0); % get the next character (with no timing info. and ascii codes only)
             end
-            
-        end;
-        
-        if ((keyTimeThird - t0) > LimitTime)
-            timedout = true;
-            %return
         end
-    end;
+    end
     
     Screen('FillRect', window, bgColor);
     Screen('Flip', window);
     
     for d=min(find(reply==8 | reply==10 | reply==13))-1 %#ok<MXFND>
         reply = reply(1:d);
-    end;
+    end
     
     % Convert to char() string:
     reply=char(reply);
 else
     reply=eval(replyFun);
-end;
+end
 
 % Restore text size:
 Screen('TextSize', window ,oldFontSize);

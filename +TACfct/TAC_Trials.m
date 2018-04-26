@@ -26,7 +26,8 @@ while ~TimeOut
     if(keyIsDown)
         StartWritting=GetSecs;
         %ask the participant to enter their reply.
-        TimeLeft=Time2Wait-(StartWritting- TimeStart);
+        %TimeLeft=Time2Wait-(StartWritting- TimeStart);
+        TimeLeft=5; %5 seconds to answer the questions
         %reply=Ask(window,'Reponse?',NormalColor,BackgroundBlack,'GetChar','center','center');
         reply=TACfct.AskLimitTime(window,'Reponse?',NormalColor,BackgroundBlack,'GetChar','center','center',40,TimeLeft);
         EndWritting=GetSecs;
@@ -53,20 +54,25 @@ end
 TempOutput{2}=GaveAnswer;
 TempOutput{3}=upper(reply); %Put reply in upper case
 
-if TimeOut==1
+if TimeOut
     TempOutput{4}=0;
 else
     TempOutput{4}=EndWritting-StartWritting;
 end
 
-if TempOutput{4}+TempOutput{1}>Time2Wait
+if TempOutput{4}>=5 || TimeOut
     TakeAnswer=0;
 else
     TakeAnswer=1;
 end
 TempOutput{5}=TakeAnswer;
-OutputEuraka=TACfct.Eureka(window);
+if ~TimeOut
+    OutputEuraka=TACfct.Eureka(window);
+    TempOutput(6:8)=OutputEuraka;
+else
+    TempOutput(6:8)={'none','NaN',0};
+end
 %Put the answer and their reaction time into the main variable.
-TempOutput(6:8)=OutputEuraka;
+
 
 end
