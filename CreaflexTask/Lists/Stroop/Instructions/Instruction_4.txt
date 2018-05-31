@@ -1,0 +1,6 @@
+Colonnes par Colonnes, donner la couleur de l`encre avec 
+\n laquelle est écrit le mot et non pas le mot lui-même, 
+\n et ce le plus vite possible. Quand vous arrivez au bout 
+\n de la page, recommencez à la suivante. Vous allez débuter 
+\n par plusieurs exemples pour vous familiarisez avec le test.
+\n\n Appuyez sur “Espace” pour commencer.

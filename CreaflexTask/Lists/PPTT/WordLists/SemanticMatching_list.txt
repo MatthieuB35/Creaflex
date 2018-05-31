@@ -1,0 +1,43 @@
+Test,Choix1,Choix2
+souris,chien,chat
+balai,aspirateur,cintre
+âne,carotte,banane
+chameau,désert,forêt
+piano,partition,livre
+sifflet,maçon,gendarme
+tour,soldat,curé
+chauve-souris,lune,soleil
+serpent,banquise,désert
+flèche,arc,encrier
+moulin à vent,ville,campagne
+fraise,poêle,sucrier
+arrosoir,fleur,cactus
+tortue,salade,gland
+scie,tarte,branche
+maïs,forêt,champ
+perroquet,cheminée,perchoir
+tulipe,jardinier,cuisinier
+brouette,tenaille,pelle
+raisin,tasse,bouteille
+compas,sac à main,cartable
+tabouret,fauteil,tam tam
+luge,rames,skis
+tambour,baguette,louche
+pyjama,soulier,pantoufle
+paon,parc,ville
+lapin,carotte,os
+lézard,lune,soleil
+cravate,chemise,robe
+flûte,pipe,cor
+chapeau,tête,main
+peigne,miroir,pinceau
+ananas,râpe,couteau
+mouton,loup,lion
+aigle,mer,montagne
+toupie,main,pied
+ours,lait,miel
+cerf-volant,vent,pluie
+singe,salade,banane
+hache,bûche,pain
+zèbre,ferme,savane
+cygne,arbre,étang

@@ -1,0 +1,29 @@
+Bleu,vert	
+cheval,tortue
+orange,banane
+tulipe,rose
+robe,pantalon
+marteau,pelle
+pizza,chocolat
+couteau,baguettes chinoises
+bateau,voiture
+fauteuil,bureau
+moustique,papillon
+piano,violon
+4,7
+ski,boxe
+intestin,coeur
+tabac,alcool
+eau,feu
+marin,médecin
+gramme,mètre
+mars,juin
+chirurgie,médicament
+les Verts,la gauche
+orgueil,paresse
+odorat,gout
+humour,patience
+jalousie,amitié
+un siècle,3 secondes
+histoire,philosophie
+

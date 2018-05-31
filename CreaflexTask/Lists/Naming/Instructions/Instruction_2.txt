@@ -1,0 +1,5 @@
+Quand vous avez la réponse, appuyez sur la touche 
+\n Espace. Vous verrez ensuite, au milieu de l`écran, 
+\n le mot `Réponse?` et vous devrez écrire votre réponse 
+\n et appuyez sur Entrée afin de valider votre réponse.
+\n \n Appuyez sur Espace pour commencer le test.

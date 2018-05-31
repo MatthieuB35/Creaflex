@@ -1,0 +1,6 @@
+2 mots vont apparaître. Vous devez indiquer qu`elle
+\n est leur similarité. Vous obtiendrez une réponse 
+\n de l`examinateur seulement lors du premier essai.
+\n Si vous donnez plusieurs réponses, vous devrez 
+\n sélectionner celle qui vous semble le plus juste.
+\n \n Appuyez sur “Espace” pour continuer.

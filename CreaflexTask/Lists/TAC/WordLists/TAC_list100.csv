@@ -1,0 +1,101 @@
+Trial;Mot1;Mot2;Mot3;cible;ciblebis;ciblebis2;ciblebis3;ciblebis4;ciblebis5;ciblebis6;ciblesub;ciblesub2;ciblesub3;ciblesyn;ciblesyn2;ciblesyn3;ciblesyn4;ciblesyn5;ciblesyn6;ciblesyn7;cibletest;cibletest2;cibletest3;cibletest4;cibletest5;cibletest6;cibletest7;Difficulte
+Trial1; attention; victime; voiture;ACCIDENT;ROUTE;DANGER;X;X;X;X;X;X;X;X;X;X;X;X;X;X;ATTENTAT;X;X;X;X;X;X;D
+Trial2; goutte; bière; fête;ALCOOL;X;X;X;X;X;X;X;X;X;BOISSON;X;X;X;X;X;X;X;X;X;X;X;X;X;P
+Trial3; offrir; surprendre; envelopper;CADEAU;AIMER;AMOUR;X;X;X;X;X;X;X;SUPRISE;X;X;X;X;X;X;X;X;X;X;X;X;X;P
+Trial4; brun; tête; lisser;CHEVEUX;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;P
+Trial5;saisir;écouter;expliquer;COMPRENDRE;X;X;X;X;X;X;COMPREHENSION;X;X;APPRENDRE;X;X;X;X;X;X;TRANSMETTRE;INSTRUCTION;INFORMATION;X;X;X;X;D
+Trial6; écrire; feuille; pointe;CRAYON;STYLO;PAPIER;X;X;X;X;X;X;X;X;X;X;X;X;X;X;PLUME;MINE;X;X;X;X;X;P
+Trial7;composer;imaginer;produire;CREER;ECRIRE;INVENTER;CREATION;PRODUIRE;X;X;CREATION;CREATEUR;CREATIVITE;FABRIQUER;X;X;X;X;X;X;MUSIQUE;MUSICIEN;CHANSON;ŒUVRE;ARTISTE;X;X;P
+Trial8;prier;vouloir;exiger;DEMANDER;X;X;X;X;X;X;DEMANDE;X;X;REQUETE;SOUHAITER;VŒU;DESIR;DESIRER;SOUHAIT;X;X;X;X;X;X;X;X;P
+Trial9; faute; problème; recommencer;ERREUR;ECHEC;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;APPRENDRE;EXERCICE;SOLUTION;PERSEVERENCE;FRUSTRATION;X;X;P
+Trial10; conscience; vif; âme;ESPRIT;X;X;X;X;X;X;X;X;X;CERVEAU;X;X;X;X;X;X;PENSEE;X;X;X;X;X;X;P
+Trial11;branche;papier; ramasser;FEUILLE;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;BOIS;X;X;X;X;X;X;P
+Trial12; tourner; action; personnage;FILM;X;X;X;X;X;X;FILMER;X;X;X;X;X;X;X;X;X;ACTEUR;CINEMA;COMEDIEN;X;X;X;X;D
+Trial13; demi; minute; attendre;HEURE;TEMPS;X;X;X;X;X;X;X;X;DUREE;X;X;X;X;X;X;SECONDE;X;X;X;X;X;X;P
+Trial14; article; annoncer; papier;JOURNAL;X;X;X;X;X;X;JOURNALISME;X;X;PRESSE;X;X;X;X;X;X;PUBLIER;X;X;X;X;X;X;P
+Trial15; frais; pousser; haricot;LEGUME;LEGUMES;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;CULTURE;POTAGER;JARDIN;X;X;X;X;D
+Trial16; poste; écrire; recevoir;LETTRE;COURRIER;X;X;X;X;X;X;X;X;CARTE;X;X;X;X;X;X;X;X;X;X;X;X;X;P
+Trial17; tour; sorcier; disparaître;MAGIE;MAGICIEN;X;X;X;X;X;MAGE;X;X;PRESTIDIGITATEUR;PRESTIDIGITATION;SORTILEGE;X;X;X;X;X;X;X;X;X;X;X;P
+Trial18; pied; avancer; promener;MARCHER;MARCHE;X;X;X;X;X;X;X;X;BALADE;CHEMIN;RANDONNER;PAS;X;X;X;X;X;X;X;X;X;X;P
+Trial19; engager; annoncer; témoin;MARIAGE;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;DECLARER;DECLARATION;PAROLE;FIANÇAILLE;X;X;X;P
+Trial20; examiner; guérisseur; cabinet;MEDECIN;DOCTEUR;MEDECINE;X;X;X;X;MEDICAL;X;X;X;X;X;X;X;X;X;SOIGNANT;SOIGNER;SOIN;X;X;X;X;P
+Trial21;rocher;sommet; chaîne;MONTAGNE;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;ALPINISME;ESCALADE;X;X;X;X;X;P
+Trial22; aile; libre; chant;OISEAU;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;ANGE;X;X;X;X;X;X;P
+Trial23; sac; jeter; odeur;POUBELLE;X;X;X;X;X;X;X;X;X;ORDURE;DECHET;X;X;X;X;X;X;X;X;X;X;X;X;P
+Trial24; coûter; qualité; juste;PRIX;VALEUR;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;EQUITABLE;X;X;X;X;X;X;P
+Trial25; penser; hésiter; étudier;REFLECHIR;AVENIR;X;X;X;X;X;REFLEXION;X;X;CONCENTRER;RAISONNER;COGITER;X;X;X;X;X;X;X;X;X;X;X;P
+Trial26; pont; courant; source;RIVIERE;EAU;FLEUVE;RUISSEAU;X;X;X;X;X;X;X;X;X;X;X;X;X;ELECTRICITE;ENJAMBER;HYDRAULIQUE;X;X;X;X;P
+Trial27; tenter; plaire; approcher;SEDUIRE;ESSAYER;AMOUR;ALLER;ATTIRER;TOUT;X;SEDUCTION;X;X;FLIRTER;X;X;X;X;X;X;COURTISER;DRAGUER;DRAGUEUR;X;X;X;X;P
+Trial28;compagnie;officier; inconnu;SOLDAT;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;D
+Trial29;empêcher;interrompre; fin;ARRET;STOP;X;X;X;X;X;ARRETER;STOPPER;X;CESSER;COUPER;COUPURE;RUPTURE;ROMPRE;TERMINER;SUSPENDRE;SABOTER;X;X;X;X;X;X;D
+Trial30; arrière; billet; ligne;TRAIN;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;FOOTBALL;X;X;X;X;X;X;P
+Trial31;fond;creuser; tomber;TROU;PUITS;X;X;X;X;X;X;X;X;GOUFFRE;X;X;X;X;X;X;TERRE;X;X;X;X;X;X;P
+Trial32; seul; sens; cas;UNIQUE;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;D
+Trial33; souvenir; hôtel; départ;VACANCES;VOYAGE;VACANCE;LOIN;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;P
+Trial34; action; révéler; réalité;VERITE;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;JOURNALISME;X;X;X;X;X;X;D
+Trial35; éclat; boire; briser;VERRE;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;BOUTEILLE;X;X;X;X;X;X;P
+Trial36; chanter; éclat; ton;VOIX;X;X;X;X;X;X;X;X;X;SON;TIMBRE;X;X;X;X;X;INTONATION;NOTE;X;X;X;X;X;P
+Trial37;aspect; libre;courant;AIR;TEMPS;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;D
+Trial38;art;éclat;plaire;BEAUTE;BEAU;X;X;X;X;X;X;X;X;BRILLANT;BRILLER;SEDUCTION;SEDUIRE;X;X;X;ŒUVRE;X;X;X;X;X;X;D
+Trial39; poche; masque; honte;CACHER;X;X;X;X;X;X;CACHETTE;X;X;DISSIMULER;X;X;X;X;X;X;VOLEUR;X;X;X;X;X;X;D
+Trial40; fétiche; saisir; fortune;CHANCE;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;OBJET;X;X;X;X;X;X;D
+Trial41; oiseau; poésie;parole;CHANT;LIBERTE;CHANSON;X;X;X;X;CHANTER;X;X;X;X;X;X;X;X;X;CORBEAU;FABLE;VERS;MELODIE;MELODIEUX;LYRIQUE;LYRISME;D
+Trial42; animal; digne; bataille;CHEVAL;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;D
+Trial43; raison; poitrine; briser;CŒUR;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;D
+Trial44; machette; réduire; partager;COUPER;X;X;X;X;X;X;COUTEAU;DECOUPER;X;HACHER;TRANCHER;X;X;X;X;X;X;X;X;X;X;X;X;D
+Trial45;recevoir;relever;envelopper;COURRIER;X;X;X;X;X;X;X;X;X;LETTRE;X;X;X;X;X;X;X;X;X;X;X;X;X;D
+Trial46;expliquer;établir;affirmer;DEMONTRER;DIRE;PROUVER;ARGUMENTER;SAVOIR;ORDRE;POINT;X;X;X;CONVAINCRE;CONNAISSANCE;REGLE;X;X;X;X;THEORIE;VERITE;FAITS;CERTIFIER;X;X;X;P
+Trial47;ventre;arrière;tourner;DOS;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;D
+Trial48;village;croix; chant;EGLISE;X;X;X;X;X;X;X;X;X;PAROISSE;X;X;X;X;X;X;X;X;X;X;X;X;X;D
+Trial49; lendemain; vert; croire;ESPOIR;X;X;X;X;X;X;ESPERANCE;ESPERER;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;D
+Trial50; promener; nature; feu;FORET;BOIS;AIR;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;P
+Trial51; civilisation;époque; personnage;HISTOIRE;X;X;X;X;X;X;HISTORIQUE;X;X;X;X;X;X;X;X;X;CONTEMPORAIN;X;X;X;X;X;X;D
+Trial52;pont;social;attacher;LIEN;X;X;X;X;X;X;LIER;RELIER;X;RELATION;X;X;X;X;X;X;RESEAU;X;X;X;X;X;X;D
+Trial53;étage;cheval;baisser;MONTER;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;DESCENDRE;X;X;X;X;X;X;D
+Trial54;premier;million;compte;NOMBRE;X;X;X;X;X;X;X;X;X;CHIFFRE;X;X;X;X;X;X;X;X;X;X;X;X;X;D
+Trial55;gris;air;rêve;NUAGE;CIEL;BLEU;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;P
+Trial56;glace;montagne;Midi;PIC;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;MASSIF;AIGUILLE;X;X;X;X;X;D
+Trial57;eau;temps; vêtement;PLUIE;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;IMPERMEABLE;X;X;X;X;X;X;D
+Trial58; cuisine; servir; partager;REPAS;NOURRITURE;PAIN;X;X;X;X;X;X;X;DINER;MANGER;PLAT;X;X;X;X;CONVIVIAL;CONVIVIALITE;X;X;X;X;X;D
+Trial59;vivre;sentir;poitrine;RESPIRER;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;CŒUR;X;X;X;X;X;X;D
+Trial60; palais;argent;possèder;RICHESSE;MAISON;X;X;X;X;X;RICHE;X;X;FORTUNE;X;X;X;X;X;X;ROI;ROYAL;X;X;X;X;X;D
+Trial61;affaire;dos;emporter;SAC;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;D
+Trial62;cœur;violence;pur;SANG;AMOUR;X;X;X;X;X;X;X;X;SENTIMENT;X;X;X;X;X;X;X;X;X;X;X;X;X;P
+Trial63; nourrir; forme; mère;SEIN;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;D
+Trial64; représenter; évènement; salle;SPECTACLE;THEATRE;REUNION;GRAND;X;X;X;X;X;X;CONFERENCE;X;X;X;X;X;X;CONCERT;EXPOSITION;CONGRES;X;X;X;X;D
+Trial65;pousser;trou;escalier;TOMBER;CHUTE;DANGER;X;X;X;X;CHUTER;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;D
+Trial66; occuper;apprendre;bureau;TRAVAILLER;TRAVAIL;X;X;X;X;X;X;X;X;DEVOIR;ETUDE;ETUDIANT;ETUDIER;X;X;X;X;X;X;X;X;X;X;P
+Trial67; découvrir; carte; creuser;TRESOR;CHERCHER;X;X;X;X;X;CHERCHEUR;X;X;FOUILLE;FOUILLER;EXPLORER;X;X;X;X;X;X;X;X;X;X;X;D
+Trial68;indigène;chef; groupe;TRIBU;MOI;X;X;X;X;X;X;X;X;CLAN;ETHNIE;INDIEN;X;X;X;X;ARBORIGENE;X;X;X;X;X;X;D
+Trial69; marier; ensemble; famille;UNION;AMOUR;COUPLE;BONHEUR;JOIE;VIE;X;REUNIR;UNIR;REUNION;ALLIANCE;LIEN;X;X;X;X;X;X;X;X;X;X;X;X;P
+Trial70;voile; emporter;pluie;VENT;X;X;X;X;X;X;X;X;X;TEMPETE;X;X;X;X;X;X;X;X;X;X;X;X;X;D
+Trial71; affaire; robe; mettre;VETEMENT;HABIT;SAC;VETEMENTS;X;X;X;HABILLER;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;P
+Trial72; rue; campagne; centre;VILLE;LIEU;X;X;X;X;X;VILLAGE;X;X;BOURG;ENDROIT;X;X;X;X;X;PROVINCE;LOCALISATION;X;X;X;X;X;P
+Trial73;affirmer;réponse;accord;OUI;VRAI ;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;CONFIRMER;DECISION;VALIDATION;X;X;X;X;D
+Trial74;rôle;amuser;carte;JOUER;JEU;JEUX;X;X;X;X;X;X;X;ACCEPTER;AQUIESCER;X;X;X;X;X;X;X;X;X;X;X;X;P
+Trial75;défendre;prouver;cabinet;AVOCAT;JUSTICE;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;D
+Trial76;succès;tour;case;ECHEC;FOU;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;D
+Trial77;fétiche;sujet;chose;OBJET;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;P
+Trial78;cabaret;titre;composer;CHANSON;MUSIQUE;X;X;X;X;X;CHANT;X;X;X;X;X;X;X;X;X;NUMERO;SPECTACLE;X;X;X;X;X;P
+Trial79;signe;parole;courant;LANGAGE;LANGUE;VIE;SENS;X;X;X;X;X;X;X;X;X;X;X;X;X;COMMUNICATION;X;X;X;X;X;X;P
+Trial80;pousser;apprendre;taille;GRANDIR;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;D
+Trial81;lire;effacer;papier;ECRIRE;X;X;X;X;X;X;ECRITURE;ECRIVAIN;X;X;X;X;X;X;X;X;CRAYON;MOT;LETTRE;X;X;X;X;P
+Trial82;baisser;robe;poche;PANTALON;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;P
+Trial83;impression;conseil;position;AVIS;IDEE;OPINION;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;P
+Trial84;loi;confiance;religion;FOI;ETAT;RESPECT;SACREE;X;X;X;X;X;X;X;X;X;X;X;X;X;SUIVRE;X;X;X;X;X;X;D
+Trial85;inventer;pensée;soumettre;IDEE;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;P
+Trial86;obéir;exemple;trace;SUIVRE;REGLE;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;D
+Trial87;général;nom;ancêtre;COMMUN;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;D
+Trial88;bleu;odeur;vin;FROMAGE;BEURK;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;RAISIN;X;X;X;X;X;X;D
+Trial89;chaleur;vert;prêt;FEU;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;D
+Trial90;chien;masque;sauvage;LOUP;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;MUSELIERE;ANIMAL;X;X;X;X;X;D
+Trial91;politique;main;côté;GAUCHE;DROITE;PARTIE;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;D
+Trial92;troubler;mer;boisson;EAU;X;X;X;X;X;X;X;X;X;LIQUIDE;X;X;X;X;X;X;X;X;X;X;X;X;X;P
+Trial93;espace;briller;hôtel;ETOILE;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;LUXE;X;X;X;X;X;X;P
+Trial94;officier;arrêter;caractère;POLICE;X;X;X;X;X;X;POLICIER;X;X;X;X;X;X;X;X;X;AUTORITAIRE;GENDARME;X;X;X;X;X;P
+Trial95;enfant;supérieure;devoir;ECOLE;CHIANT;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;ETUDE;MAITRESSE;X;X;X;X;X;D
+Trial96;chaud;sein;vache;LAIT;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;P
+Trial97;composer;appeler;coup;TELEPHONE;X;X;X;X;X;X;TELEPHONER;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;P
+Trial98;œuvre;immobile;liberté;STATUE;X;X;X;X;X;X;X;X;X;SCULPTURE;X;X;X;X;X;X;X;X;X;X;X;X;X;D
+Trial99;siècle;ombre;allumer;LUMIERE;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;P
+Trial100;musique;payer;résultat;NOTE;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;D

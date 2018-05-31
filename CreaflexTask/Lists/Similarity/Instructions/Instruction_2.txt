@@ -1,0 +1,6 @@
+\n Vous avez 20 secondes maximum pour répondre. 
+\n Quand vous avez la réponse, appuyez sur la touche Espace.
+\n Vous verrez ensuite, au milieu de l`écran, le mot 
+\n `Réponse?` et vous devrez écrire votre réponse et 
+\n appuyez sur Entrée.
+\n \n Appuyez sur Espace pour voir l`exemple.

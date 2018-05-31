@@ -1,0 +1,8 @@
+Colonnes par Colonnes, donner la couleur de l`encre avec 
+\n laquelle est écrit le mot et non pas le mot lui-même, 
+\n et ce le plus vite possible. ATTENTION, vous devez lire 
+\n les mots qui sont entourés d`un rectangle et non pas dire
+\n la couleur de l`encre. Quand vous arrivez au bout de la page, 
+\n recommencez à la suivante. Vous allez débuter par plusieurs 
+\n exemples pour vous familiarisez avec le test.
+\n\n Appuyez sur “Espace” pour commencer.

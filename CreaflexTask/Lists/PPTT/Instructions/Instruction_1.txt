@@ -1,0 +1,7 @@
+3 mots vont apparaître. Vous devez dire quel mot 
+\n est associé au mot en haut: celui de gauche 
+\n (en appuyant sur la flèche gauche) ou celui 
+\n de droite (en appuyant sur la flèche droite). 
+\n Nous allons voir deux exemples avant de 
+\n commencer le test.
+\n\n Appuyez sur “Espace” pour continuer.

@@ -1,0 +1,6 @@
+3 mots indices vont apparaître disposés en triangle 
+\n sur l`écran. L`objectif est de trouver un 4ème mot, 
+\n relié d`une façon ou d`une autre, à chacun de ces mots 
+\n indices. La réponse peut être un verbe, un adjectif 
+\n ou un nom commun mais pas un nom propre ni un mot composé. 
+\n \n Appuyez sur Espace pour continuer

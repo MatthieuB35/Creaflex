@@ -1,0 +1,6 @@
+Vous allez voir apparaître un mot au centre de l`écran.
+\n Donnez un mot qui n`est habituellement pas associe 
+\n avec le mot présenté, ou un mot dont l`association 
+\n au mot présenté vous parait originale tout en restant 
+\n comprehensible par quelqu`un d`autre.
+\n\n Appuyez sur Espace pour continuer.

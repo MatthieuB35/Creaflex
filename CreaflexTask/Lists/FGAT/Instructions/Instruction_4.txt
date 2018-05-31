@@ -1,0 +1,4 @@
+Vous devez proposer qu`un seul mot et non un 
+\n groupe de mot. Les noms propres ou les noms composés 
+\n ne sont pas pris en compte.
+\n\n Appuyez sur Espace pour continuer.

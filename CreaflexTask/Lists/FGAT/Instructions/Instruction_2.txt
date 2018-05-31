@@ -1,0 +1,8 @@
+Vous disposez de 10 secondes pour répondre. Quand le 
+\n fond d`écran s`assombrit, il vous reste 2 secondes.
+\n Quand vous avez la réponse, appuyez sur la touche 
+\n Espace. Vous verrez ensuite, au milieu de l`écran, 
+\n le mot `Réponse?` et vous devrez écrire votre réponse 
+\n et appuyez sur Entrée. De nouveaux mots apparaîtront 
+\n ensuite et vous procéderez de la même façon.
+\n \n Appuyez sur Espace pour commencer le test.

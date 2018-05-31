@@ -1,0 +1,7 @@
+Vous disposez de 30 secondes pour trouver ce mot.
+\n Vous pouvez répondre après 2 secondes, quand un
+\n point d`interrogation apparaitra au milieu de l'écran.
+\n Quand vous avez la réponse, appuyez sur la touche 
+\n Espace. Quand le fond d`écran s`assombrit, il vous 
+\n reste 2 secondes.
+\n \n Appuyez sur Espace pour continuer.

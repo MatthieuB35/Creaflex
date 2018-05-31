@@ -1,0 +1,7 @@
+Vous allez voir apparaître un mot au centre de l`écran.
+\n Pour chaque mot, donnez le 1er mot qui vous vient 
+\n à l`esprit sans réfléchir, en réponse au mot proposé.
+\n Vous devez proposer qu`un seul mot et non un groupe 
+\n de mot. Les noms propres ou les noms composés ne sont 
+\n pas pris en compte.
+\n\n Appuyez sur Espace pour continuer.

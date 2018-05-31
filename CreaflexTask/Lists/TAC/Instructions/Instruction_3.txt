@@ -1,0 +1,6 @@
+Vous verrez ensuite, au milieu de l`écran, le mot 
+\n `Réponse?`. Vous disposerez alors de 5 secondes pour
+\n écrire votre réponse sans aucun caractère spécial 
+\n (i.e accent). Ensuite, appuyez sur Entrée pour valider
+\n votre réponse.
+\n \n Appuyez sur Espace pour continuer.

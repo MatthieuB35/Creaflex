@@ -1,0 +1,5 @@
+Lisez les mots en suivant les colonnes, et ce le plus 
+\n vite possible. Quand vous arrivez au bout de la page, 
+\n recommencez à la suivante. Vous allez débuter par plusieurs 
+\n exemples pour vous familiarisez avec le test.
+\n\n Appuyez sur “Espace” pour commencer.

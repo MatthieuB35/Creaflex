@@ -1,0 +1,5 @@
+Nommez la couleur des carrés en suivant les colonnes, 
+\n et ce le plus vite possible. Quand vous arrivez au bout de 
+\n la colonne, recommencez à la suivante. Vous allez débuter par 
+\n plusieurs exemples pour vous familiarisez avec le test.
+\n\n Appuyez sur “Espace” pour commencer.

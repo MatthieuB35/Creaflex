@@ -1,0 +1,8 @@
+Ensuite, vous devez dire si oui ou non vous avez résolu 
+\n le problème par un phénomène d`Eureka. C`est à dire 
+\n si la solution vous est venue soudainement, comme une 
+\n illumination. Ce phénomène correspond à une solution 
+\n qui est apparue « d`un coup », sans effort. Il s`oppose 
+\n à une résolution par étapes progressives où sont testés 
+\n successivement plusieurs possibilités de réponses.
+\n \n Appuyez sur Espace pour continuer
