@@ -1,0 +1,7 @@
+Vous allez maintenant commencer la vraie tâche. 
+\n Vous allez voir, chaque nom qui sera présent 
+\n dans la tâche. Cliquez sur le bouton gauche
+\n si vous connaissez le mot, sinon appuyez sur
+\n le bouton droit.
+\n\n Appuyez sur Espace pour commencer.
+

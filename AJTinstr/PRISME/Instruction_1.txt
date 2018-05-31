@@ -1,0 +1,10 @@
+Vous allez maintenant pouvoir vous entrainer 
+\n pour vous familiariser avec la souris. 
+\n Dans cet entrainement, vous allez voir un 
+\n chiffre apparaitre et vous devrez placer le 
+\n curseur sur la position la plus proche de 
+\n ce chiffre, sur l`échelle.
+\n\n Appuyez sur Espace si vous avez compris.
+
+
+

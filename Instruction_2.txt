@@ -1,4 +1,0 @@
-Vous verrez le chiffre pendant 2 secondes puis vous
-\n disposerez de 2 nouvelles secondes pour répondre.
-\n Le chiffre deviendra jaune lorsque vous pouvez répondre.
-\n\n Appuyez sur Espace pour commencer.

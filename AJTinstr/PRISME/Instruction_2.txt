@@ -1,0 +1,8 @@
+Vous verrez le chiffre pendant quelques secondes. 
+\n Pendant les 2 premières secondes, vous réfléchissez 
+\n à votre réponse, à la position du chiffre sur  
+\n l`échelle, mais ne pouvez pas encore répondre.
+\n\n Appuyez sur Espace si vous avez compris.
+
+
+

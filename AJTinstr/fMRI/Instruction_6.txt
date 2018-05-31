@@ -1,0 +1,9 @@
+\n Pour noter à quel point ces 2 mots sont liés, vous 
+\n utiliserez une échelle visuelle sur laquelle vous 
+\n placerez un curseur entre 0 (pas du tout liés) et 
+\n 100 (complètement liés, presque similaires). 
+\n Le 0 est à gauche de l`échelle, le 100 est à droite. 
+\n Toutes les valeurs sont possibles entre ces 2 extrêmes.
+\n\n Appuyez sur Espace si vous avez compris jusque-là.
+
+

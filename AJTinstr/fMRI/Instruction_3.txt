@@ -1,0 +1,11 @@
+\n Après 2 secondes, lorsque ce chiffre devient 
+\n jaune, vous pourrez déplacer le curseur et 
+\n ainsi répondre. Une fois la position souhaitez 
+\n atteinte sur l`échelle, validez la en cliquant 
+\n sur le trackball par un clic gauche. 
+\n\n Appuyez sur Espace si vous avez compris.
+
+
+
+
+

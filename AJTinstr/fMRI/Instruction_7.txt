@@ -1,0 +1,9 @@
+Tout les mots présentés seront toujours des noms.
+\n Les 2 mots resteront affichés à l’écran pendant 
+\n quelques secondes. 
+\n Les 2 premières secondes, vous réfléchirez aux 
+\n liens entre les 2 mots sans pouvoir déplacer le 
+\n curseur, le trackball n’est pas actif. 
+\n\n Appuyez sur Espace si vous avez compris jusque-là.
+
+
