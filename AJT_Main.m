@@ -122,7 +122,6 @@ elseif strcmp(WhichTask,'PRISME') && Presentation==1
 end
 
 
-
 %Instruction
 if (strcmp(WhichTask,'fMRI') && WhichRun==1) || strcmp(WhichTask,'PRISME')
     %Instructions before task

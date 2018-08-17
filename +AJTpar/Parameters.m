@@ -24,7 +24,7 @@ lineWidthPix=0.01; %Width fixation Cross
 TimeToThink=2; %Decide the number of seconds where participants have the time to think
 responseKey   = KbName('return'); %Return the keycode for the key 'return'
 startPosition = 'center'; %Select the start position of the cursor
-endPoints={'0 = Pas du tout Lie', '100= Completement lie'}; %Which word there is at the end of the scale
+endPoints={'0 = Pas du tout lie', '100= Completement lie'}; %Which word there is at the end of the scale
 
 
 
@@ -52,11 +52,12 @@ Enablekeys = RestrictKeysForKbCheck([EscKey SpaceKey]);
 
 TTLSreen=InstructionScreensPart5;
 
-InstructFontChg=35; %Modify the font size of the instruction; 0.15/0.08
-CuesFontChg=40; %Modify the font size of the cues 0.15/0.08
+% InstructFontChg=30; %Modify the font size of the instruction; 0.15/0.08
+InstructFontChg=40;
+CuesFontChg=35; %Modify the font size of the cues 0.15/0.08
 EndPointsFontChg=25; %Modify the font size of the end points 0.07/0.04
-EndPointsPositionYChg=0.05; %Modify the Y position of the end points
-EndPointsPositionXChg=0.16; %Modify the X position of the end points
+EndPointsPositionYChg=0.08; %Modify the Y position of the end points
+%EndPointsPositionXChg=0.16; %Modify the X position of the end points
 CuesPositionYChg=0.85; %Modify the Y position of the cues
 MouseSpeedFactor = 2.4; %Define the parameter of the speed of the mouse 
 
@@ -79,5 +80,5 @@ WhenCrossTraining=[4,8,12];
 
 PauseScreen=1;
 
-
-PNType='C17-61_0_';
+%Need to change to 2 fro groupe phase 2
+PNType='C17-61_1_';

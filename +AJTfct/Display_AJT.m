@@ -3,7 +3,8 @@ function OnsetDisplay=Display_AJT(HowManyCues,WhichItem,WhichColorCues,IsSlider,
 AJTpar.Parameters
 
 %Modify screen size
-ModifyResolution=(screenYpixels/screenXpixels)+1;
+%ModifyResolution=(screenYpixels/screenXpixels)+1;
+ModifyResolution=(screenXpixels/screenYpixels);
 
 %Modification of the fontsize of the instruction,cues and endpoints
 %SizeFontModifyCues=round((screenXpixels-screenYpixels)*CuesFontChg*ModifyResolution);
@@ -14,6 +15,18 @@ SizeFontModifyEndPoints=round(EndPointsFontChg*ModifyResolution);
 %Define the left and right position of the cues
 LeftScreenPosition=rect(3)*0.4;
 RightScreenPosition=rect(3)*0.6;
+
+
+% Create and store the size of end points
+Screen('TextFont', window, 'Arial');
+Screen('TextSize', window, SizeFontModifyEndPoints);
+[~, ~, textBoundsend1]=DrawFormattedText(window, endPoints{1}, leftTick(1, 1), rect(4)*scalaPosition+rect(4)*EndPointsPositionYChg,NormalColor); %Left item
+DisplaceTextendPoint1=textBoundsend1(3)-textBoundsend1(1);
+[~, ~, textBoundsend2]=DrawFormattedText(window, endPoints{2}, rightTick(1, 1),  rect(4)*scalaPosition+rect(4)*EndPointsPositionYChg,NormalColor); %Left item
+DisplaceTextendPoint2=textBoundsend2(3)-textBoundsend2(1);
+
+%Fill the screen in black
+Screen('FillRect', window, [0 0 0]);
 
 % Setup the text type for the window
 Screen('TextFont', window, 'Arial');
@@ -41,7 +54,7 @@ else
     %leave the same space between the two cues for each trial
     [~, ~, textBounds]=DrawFormattedText(window,textString_Left_CurrIt,LeftScreenPosition, rect(4)*(scalaPosition*CuesPositionYChg),WhichColorCues); %Left item
     DisplaceText=textBounds(3)-textBounds(1);
-    
+
     %Fill the screen in black
     Screen('FillRect', window, [0 0 0]);
     
@@ -56,10 +69,13 @@ end
 Screen('TextFont', window, 'Arial');
 Screen('TextSize', window, SizeFontModifyEndPoints);
 
-% Drawing the end points of the scala as text %textBounds(1, 3) -
-%   - rightTick(1, 1)/2
-DrawFormattedText(window, endPoints{1}, leftTick(1, 1)-leftTick(1, 1)*EndPointsPositionXChg,  rect(4)*scalaPosition+rect(4)*EndPointsPositionYChg,NormalColor); % Left point
-DrawFormattedText(window, endPoints{2}, rightTick(1, 1)-leftTick(1, 1)*EndPointsPositionXChg,  rect(4)*scalaPosition+rect(4)*EndPointsPositionYChg,NormalColor); % Right point
+% Drawing the end points of the scala as text
+%DrawFormattedText(window, endPoints{1}, leftTick(1, 1)-leftTick(1, 1)*EndPointsPositionXChg,  rect(4)*scalaPosition+rect(4)*EndPointsPositionYChg,NormalColor); % Left point
+%DrawFormattedText(window, endPoints{2}, rightTick(1, 1)-leftTick(1, 1)*EndPointsPositionXChg,  rect(4)*scalaPosition+rect(4)*EndPointsPositionYChg,NormalColor); % Right point
+
+DrawFormattedText(window, endPoints{1}, leftTick(1, 1)-(DisplaceTextendPoint1/2),  rect(4)*scalaPosition+lineLength+rect(4)*EndPointsPositionYChg,NormalColor); % Left point
+DrawFormattedText(window, endPoints{2}, rightTick(1, 1)-(DisplaceTextendPoint2/2),  rect(4)*scalaPosition+lineLength+rect(4)*EndPointsPositionYChg,NormalColor); % Right point
+
 
 % Drawing the scala
 %Screen('DrawLine', window, scaleColor, midTick(1), midTick(2), midTick(3), midTick(4), width);         % Mid tick

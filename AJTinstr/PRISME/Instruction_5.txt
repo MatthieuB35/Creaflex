@@ -4,4 +4,4 @@ Vous allez maintenant réaliser un nouvel entrainement
 \n l`écran. Le jeu consiste à estimer à quel point ces 
 \n mots ont un lien, c’est à dire combien vous pensez 
 \n que les mots présentés sont reliés, proches ou non. 
-\n\n Appuyez sur Espace si vous avez compris jusque-là.
+\n\n Cliquez si vous avez compris jusque-là.

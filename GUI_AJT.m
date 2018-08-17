@@ -20,7 +20,6 @@ function varargout = GUI_AJT(varargin)
 %
 % See also: GUIDE, GUIDATA, GUIHANDLES
 
-% Edit the above text to modify the response to help GUI_AJT
 
 % Last Modified by GUIDE v2.5 19-Apr-2018 12:37:18
 

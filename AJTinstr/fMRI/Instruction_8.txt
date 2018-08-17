@@ -4,5 +4,5 @@ Après 2 secondes, le curseur devient vert et vous
 \n Une fois la position souhaitez atteinte sur 
 \n l’échelle, validez-la en par un clic gauche 
 \n avec le pouce.
-\n\n Appuyez sur Espace si vous avez compris jusque-là.
+\n\n Cliquez si vous avez compris jusque-là.
 

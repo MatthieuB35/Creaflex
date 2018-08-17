@@ -5,7 +5,7 @@ Répondez le plus vite possible, vous n’avez que
 \n souhaitez le positionner au milieu de 
 \n l’échelle. Après avoir cliqué, l`essai suivant 
 \n s`affichera automatiquement.
-\n\n Appuyez sur Espace pour commencer, si vous avez  
+\n\n Cliquez pour commencer, si vous avez  
 \n bien compris les instructions.
 
 

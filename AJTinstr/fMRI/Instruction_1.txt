@@ -4,7 +4,7 @@ Vous allez maintenant pouvoir vous entrainer
 \n chiffre apparaitre et vous devrez placer le 
 \n curseur sur la position la plus proche de 
 \n ce chiffre, sur l`échelle.
-\n\n Appuyez sur Espace si vous avez compris.
+\n\n Cliquez si vous avez compris.
 
 
 

@@ -2,5 +2,5 @@ Après avoir fait 100 essais, vous pourrez prendre une
 \n pause avant de continuer. Il est important de vous 
 \n reposer lors de ces pauses car la  tâche dure 
 \n environ 1 heure.
-\n\n Appuyez sur Espace si vous avez compris jusque-là.
+\n\n Cliquez si vous avez compris jusque-là.
 

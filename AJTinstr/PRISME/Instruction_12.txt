@@ -2,5 +2,5 @@ Après chaque 25 essais, une croix de fixation apparaîtra
 \n au milieu de l`écran. La croix deviendra jaune 2 
 \n secondes avant de disparaitre. Vous devrez la 
 \n fixer tout du long. 
-\n\n Appuyez sur Espace si vous avez compris jusque-là.
+\n\n Cliquez si vous avez compris jusque-là.
 

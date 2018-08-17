@@ -2,9 +2,12 @@
 
 %Call some default settings for setting up Psychtoolbox or Debug mode
 %PsychDefaultSetup(2);
-%Screen('Preference', 'SkipSyncTests', 0)
+Screen('Preference', 'SkipSyncTests', 0);
 
-%Screen('Preference', 'SkipSyncTests', 2);
+% Screen('Preference', 'SkipSyncTests', 2);
+
+% PTB opening screen will be empty = black screen
+Screen('Preference', 'VisualDebugLevel', 1);
 
 % Get the screen numbers. This gives us a number for each of the screens
 % attached to our computer.

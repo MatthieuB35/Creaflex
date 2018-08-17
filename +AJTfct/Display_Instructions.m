@@ -2,12 +2,11 @@ function Display_Instructions(ListNumberInstructions,EncodingInstruction,WhichTy
 
 AJTpar.Parameters;
 
-if ListNumberInstructions==TTLSreen
-    RestrictKeysForKbCheck(KeyTTL);
-end
+
 
 %Modify screen size
-ModifyResolution=(screenYpixels/screenXpixels)+1;
+%ModifyResolution=(screenYpixels/screenXpixels)+1;
+ModifyResolution=(screenXpixels/screenYpixels);
 
 %SizeFontModifyInstruct=round((screenXpixels-screenYpixels)*InstructFontChg*ModifyResolution);
 SizeFontModifyInstruct=round(ModifyResolution*InstructFontChg);
@@ -37,8 +36,28 @@ for InstructionNumber= 1:length(ListNumberInstructions)
     %Wait 0.5 seconds to ensure the slide don't skip.
     WaitSecs(0.5);
     
-    %Wait for the participant to press a button to continue
-    KbWait;
+    if ListNumberInstructions==TTLSreen
+        RestrictKeysForKbCheck(KeyTTL);
+        fprintf('******************* \n')
+        fprintf('Waiting for MRI key \n')
+        fprintf('******************* \n')
+        KbWait;
+        fprintf('Key received ! \n')
+    else
+
+        fprintf('Waiting for any click...')
+        
+        % Wait for a click on the mouse (any button)
+        while 1
+            [~,~,buttons,~,~,~] = GetMouse(window, MouseDeviceIndex);
+            if any(buttons)
+                break
+            end
+        end
+        
+        fprintf('done.\n')
+        
+    end
     
 end
 

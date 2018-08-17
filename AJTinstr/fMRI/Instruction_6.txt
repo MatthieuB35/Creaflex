@@ -4,6 +4,6 @@
 \n 100 (complètement liés, presque similaires). 
 \n Le 0 est à gauche de l`échelle, le 100 est à droite. 
 \n Toutes les valeurs sont possibles entre ces 2 extrêmes.
-\n\n Appuyez sur Espace si vous avez compris jusque-là.
+\n\n Cliquez si vous avez compris jusque-là.
 
 

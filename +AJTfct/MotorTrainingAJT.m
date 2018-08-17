@@ -5,7 +5,9 @@ AJTpar.Parameters
 x=xCenter;
 
 %Modify screen size
-ModifyResolution=(screenYpixels/screenXpixels)+1;
+%ModifyResolution=(screenYpixels/screenXpixels)+1;
+ModifyResolution=(screenXpixels/screenYpixels);
+
 SizeFontModifyCues=round(CuesFontChg*ModifyResolution);%round((screenXpixels-screenYpixels)*CuesFontChg);
 
 SetMouse(round(x), round(rect(4)*scalaPosition));
@@ -89,7 +91,7 @@ for WhichIterationNumber = 1:NumberItems
         end
     end
     %Display in the command windows the different trials
-    disp(['For iteration' num2str(WhichIterationNumber) 'answer=' num2str(answer)]);
+    disp(['For iteration ' num2str(WhichIterationNumber) ' answer=' num2str(answer)]);
     
     AJTfct.Display_AJT(1,NumberTemp,NormalColor,1,x,sliderColorSelection,window,screenXpixels, screenYpixels,midTick,leftTick,rightTick,horzLine,rect);
     
@@ -120,6 +122,9 @@ for WhichIterationNumber = 1:NumberItems
     
     %Converts to a scale from 0 to 100
     position= round(position/2)+50;
+    
+    % Print in Command Window
+    AJTfct.PrintCursorEcho( position )
     
     % Setup the text type for the window
     Screen('TextFont', window, 'Arial');

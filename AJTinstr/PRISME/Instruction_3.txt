@@ -3,7 +3,7 @@
 \n ainsi répondre. Une fois la position souhaitez 
 \n atteinte sur l`échelle, validez la en cliquant 
 \n sur la souris par un clic gauche. 
-\n\n Appuyez sur Espace si vous avez compris.
+\n\n Cliquez si vous avez compris.
 
 
 
